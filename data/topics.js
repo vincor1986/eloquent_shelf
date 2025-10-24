@@ -1,0 +1,70 @@
+import science from "@/public/images/icons/natural-sciences.png";
+import psychology from "@/public/images/icons/psychology.png";
+import philosophy from "@/public/images/icons/philosophy.png";
+import history from "@/public/images/icons/history.png";
+import ai from "@/public/images/icons/ai.png";
+import selfhelp from "@/public/images/icons/selfhelp.png";
+import commentary from "@/public/images/icons/commentary.png";
+import economics from "@/public/images/icons/economics.png";
+
+const topics = [
+  {
+    topic: "Artificial Intelligence",
+    description:
+      "Understand the advancements and implications of AI technology.",
+    bg: "bg-primary",
+    image: ai,
+    invert: true,
+  },
+  {
+    topic: "Natural Science",
+    description:
+      "Explore the wonders of the natural world and scientific discoveries.",
+    bg: "bg-forest",
+    image: science,
+  },
+  {
+    topic: "Psychology and Mind",
+    description: "Delve into the complexities of the human mind and behaviour.",
+    bg: "bg-light-gold",
+    image: psychology,
+  },
+  {
+    topic: "Philosophy",
+    description:
+      "Traverse the fundamental nature of knowledge, reality, and existence.",
+    bg: "bg-light-forest",
+    image: philosophy,
+  },
+  {
+    topic: "Self-Improvement",
+    description:
+      "Discover strategies and insights for personal growth and development.",
+    bg: "bg-secondary",
+    image: selfhelp,
+  },
+  {
+    topic: "History",
+    description:
+      "Ride the ups and downs of human civilization and uncover the impact of the past on the present and future.",
+    bg: "bg-gold",
+    image: history,
+  },
+  {
+    topic: "Economics",
+    description:
+      "Join the exploration of economic theories and their real-world applications.",
+    bg: "bg-dark-forest",
+    image: economics,
+    invert: true,
+  },
+  {
+    topic: "Modern Commentary",
+    description:
+      "Engage with contemporary analyses on current events and societal trends.",
+    bg: "bg-pink",
+    image: commentary,
+  },
+];
+
+export default topics;

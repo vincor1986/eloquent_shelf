@@ -1,14 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Copse } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+
+const copse = Copse({
+  variable: "--font-copse",
+  weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -19,10 +20,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${copse.variable} antialiased w-full`}>
+        <Header />
+        <main className="px-4 py-8 max-w-[1200px] min-h-[calc(100vh-72px)] mx-auto">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
