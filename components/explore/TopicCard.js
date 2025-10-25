@@ -12,7 +12,7 @@ const TopicCard = ({ topic, description, bg, image, invert = false }) => {
   return (
     <Link href={`/topics/${topicUrl}`} className="group">
       <div
-        className={`relative rounded-sm shadow-md col-span-1 flex flex-col p-4 min-h-70 pt-16 pb-10 ${bg} hover:scale-105 hover:z-20 cursor-pointer transition-all duration-500 `}
+        className={`relative rounded-sm shadow-md col-span-1 flex flex-col p-4 h-70 md:h-60 pt-16 pb-5 ${bg} hover:scale-105 hover:z-20 cursor-pointer transition-all duration-500 `}
       >
         <Image
           src={image}

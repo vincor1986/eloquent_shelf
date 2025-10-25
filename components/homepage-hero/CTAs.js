@@ -11,6 +11,8 @@ const CTAs = () => {
           src={baroquePattern}
           alt="Baroque pattern"
           className="absolute inset-0 w-full h-full object-cover opacity-5"
+          width={350}
+          priority
         />
         <p className="text-white text-center text-lg">
           Discover the world&apos;s most insightful books — curated, summarized,
@@ -18,7 +20,7 @@ const CTAs = () => {
         </p>
         <br />
         <p className="text-white text-center text-lg">
-          Learn better, think deeper, and read eloquently.
+          An eloquent shelf is an eloquent self.
         </p>
       </div>
       <Link href="/topics" className="mt-8">
@@ -31,7 +33,7 @@ const CTAs = () => {
           &
         </p>
       </div>
-      <Link href="/newsletter">
+      <Link href="#newsletter">
         <button className="bg-light-gold text-primary rounded-sm px-4 py-2 cursor-pointer hover:bg-gold transition-colors duration-300">
           Subscribe to our newsletter
         </button>

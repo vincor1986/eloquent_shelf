@@ -17,6 +17,8 @@ const IntroSection = () => {
             src={bookTree}
             alt="Illustration of a tree with books for leaves"
             className="w-full h-auto mx-auto md:mx-0 md:mr-10"
+            width={350}
+            priority
           />
         </div>
       </div>

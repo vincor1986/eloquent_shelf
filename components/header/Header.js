@@ -12,6 +12,7 @@ const Header = () => {
           className="h-auto"
           alt="Eloquent Shelf Logo"
           width={250}
+          priority
         />
       </div>
       <BurgerIcon />

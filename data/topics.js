@@ -20,8 +20,9 @@ const topics = [
     topic: "Natural Science",
     description:
       "Explore the wonders of the natural world and scientific discoveries.",
-    bg: "bg-forest",
+    bg: "bg-dark-forest",
     image: science,
+    invert: true,
   },
   {
     topic: "Psychology and Mind",
@@ -40,14 +41,14 @@ const topics = [
     topic: "Self-Improvement",
     description:
       "Discover strategies and insights for personal growth and development.",
-    bg: "bg-secondary",
+    bg: "bg-light-forest",
     image: selfhelp,
   },
   {
     topic: "History",
     description:
       "Ride the ups and downs of human civilization and uncover the impact of the past on the present and future.",
-    bg: "bg-gold",
+    bg: "bg-light-gold",
     image: history,
   },
   {
@@ -62,8 +63,9 @@ const topics = [
     topic: "Modern Commentary",
     description:
       "Engage with contemporary analyses on current events and societal trends.",
-    bg: "bg-pink",
+    bg: "bg-primary",
     image: commentary,
+    invert: true,
   },
 ];
 
