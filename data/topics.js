@@ -60,7 +60,7 @@ const topics = [
     invert: true,
   },
   {
-    topic: "Modern Commentary",
+    topic: "Big Ideas",
     description:
       "Engage with contemporary analyses on current events and societal trends.",
     bg: "bg-primary",
