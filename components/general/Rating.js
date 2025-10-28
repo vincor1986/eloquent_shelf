@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import ratingStar from "@/public/images/icons/rating-star.png";
+import formatNumber from "@/lib/helpers/formatNumber";
 
 const StarImage = () => (
   <Image
@@ -22,20 +23,20 @@ const StarFill = (percent, key) => (
   </div>
 );
 
-const Rating = ({ starRating = 4.6 }) => {
+const Rating = ({ starRating, count }) => {
   const starArray = Array.from({ length: 5 }, (_, index) =>
     index < Math.floor(starRating)
       ? StarFill(100, index)
       : index === Math.floor(starRating)
-      ? StarFill((starRating % 1) * 100, index)
-      : StarFill(0, index)
+        ? StarFill((starRating % 1) * 100, index)
+        : StarFill(0, index)
   );
 
   return (
-    <div className="flex items-center gap-0.5">
-      {starArray}{" "}
+    <div className="flex flex-col items-center gap-0.5">
+      <div className="flex gap-0.5">{starArray}</div>
       <span className="relative top-1 ml-1 text-sm text-zinc-500">
-        ({starRating.toFixed(1)} / 5)
+        {starRating} | ({formatNumber(count)} reviews)
       </span>
     </div>
   );

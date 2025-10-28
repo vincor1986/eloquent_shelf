@@ -13,7 +13,6 @@ export const summaryType = defineType({
     defineField({
       name: "subtitle",
       type: "string",
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "author",
@@ -23,9 +22,17 @@ export const summaryType = defineType({
     }),
     defineField({
       name: "slug",
-      type: "slug",
+      type: "string",
       options: { source: "title" },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "cover_image",
+      title: "cover image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: "cover_url",
@@ -42,13 +49,20 @@ export const summaryType = defineType({
     }),
     defineField({
       name: "buy_links",
-      type: "array",
-      of: [{ type: "object", fields: [{ name: "platform", type: "url" }] }],
+      type: "object",
+      fields: [
+        { name: "amazon", type: "url" },
+        { name: "bookshop", type: "url" },
+        { name: "indie", type: "url" },
+      ],
+    }),
+    defineField({
+      name: "description",
+      type: "text",
     }),
     defineField({
       name: "summary",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "text",
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -64,6 +78,10 @@ export const summaryType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "publisher",
+      type: "string",
+    }),
+    defineField({
       name: "published_date",
       type: "datetime",
     }),
@@ -76,6 +94,10 @@ export const summaryType = defineType({
       name: "reading_difficulty",
       type: "string",
       options: { list: ["beginner", "intermediate", "advanced"] },
+    }),
+    defineField({
+      name: "page_count",
+      type: "number",
     }),
     defineField({
       name: "read_time_minutes",

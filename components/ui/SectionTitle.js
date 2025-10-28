@@ -8,7 +8,7 @@ const SectionTitle = ({ title, desc }) => {
         <FullStop />
       </h2>
       <div className="h-1.25 bg-gold w-full" />
-      <p className="my-2 text-zinc-500 italic text-sm">{desc}</p>
+      <p className="my-2 text-zinc-500 italic">{desc}</p>
     </div>
   );
 };
