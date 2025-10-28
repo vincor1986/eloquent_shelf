@@ -29,8 +29,15 @@ const SummaryCard = ({
           </div>
           <div className="mb-4">
             <h2 className="text-primary">
-              <span className="font-semibold">{title}</span>
-              {subtitle ? <span className="italic">: {subtitle}</span> : null}
+              <span className="font-semibold">
+                {title}
+                {subtitle ? ":" : null}
+              </span>
+              {subtitle ? (
+                <span className="italic text-ellipsis line-clamp-3">
+                  {subtitle}
+                </span>
+              ) : null}
             </h2>
             <p className="text-secondary text-sm">{formatList(author)}</p>
           </div>
