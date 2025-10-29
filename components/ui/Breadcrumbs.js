@@ -1,8 +1,14 @@
 import Link from "next/link";
 
+import { Home } from "lucide-react";
+
 const Breadcrumbs = ({ items }) => {
   return (
     <nav className="absolute top-4 left-4 flex text-xs">
+      <Link href="/">
+        <Home className="h-4 w-4 text-primary" />
+      </Link>
+      <span className="ml-1 text-gray-500">/</span>
       {items.map((item, index) => (
         <div key={index} className="flex items-center">
           <Link

@@ -117,6 +117,12 @@ export const summaryType = defineType({
       of: [{ type: "string", name: "tag" }],
     }),
     defineField({
+      name: "homepage_featured",
+      type: "boolean",
+      initialValue: false,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "published_at",
       type: "datetime",
       initialValue: () => new Date().toISOString(),

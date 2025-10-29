@@ -3,85 +3,114 @@ import { notFound } from "next/navigation";
 
 import { Zap, Lightbulb } from "lucide-react";
 
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import SummaryHeader from "@/components/summary/SummaryHeader";
+import Rating from "@/components/general/Rating";
 import SummaryPanel from "@/components/summary/SummaryPanel";
 import BuyLinkContainer from "@/components/summary/BuyLinkContainer";
-import Rating from "@/components/general/Rating";
 import SummaryOverview from "@/components/summary/SummaryOverview";
 import Outcomes from "@/components/summary/Outcomes";
+import HorizontalListView from "@/components/list-view/HorizontalListView";
 
 import imageURL from "@/lib/cms/imageURL";
-import { fetchSummaryWithSlug } from "@/actions/cms";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import {
+  fetchSummariesByAuthor,
+  fetchSummariesByCategory,
+  fetchSummaryWithSlug,
+} from "@/actions/cms";
 
-const baseBCItems = [
-  { label: "Home", href: "/" },
-  { label: "Topics", href: "/topics" },
-];
+const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
 const SummaryPage = async ({ params }) => {
   const { slug } = await params;
 
-  const { error, data } = await fetchSummaryWithSlug(slug);
+  const { error, data: mainSummary } = await fetchSummaryWithSlug(slug);
 
   if (error) {
     return notFound();
   }
 
-  const mainCat = data.categories[0].toLowerCase().replaceAll(" ", "-");
+  const mainCat = mainSummary.categories[0].toLowerCase().replaceAll(" ", "-");
   const bcItems = [
     ...baseBCItems,
     { label: mainCat, href: `/topics/${mainCat}` },
   ];
 
+  const authorName = mainSummary.author[0];
+  const { error: authorError, data: authorSummaries } =
+    await fetchSummariesByAuthor(authorName);
+
+  const { error: categoryError, data: categorySummaries } =
+    await fetchSummariesByCategory(mainSummary.categories[0]);
+
+  const useAuthor = authorSummaries.length > 1 && !authorError;
+
+  const othersArr = useAuthor
+    ? authorSummaries.filter((i) => i.slug !== slug && i.cover_image)
+    : categorySummaries.filter((i) => i.slug !== slug && i.cover_image);
+
   return (
-    <section className="p-8">
+    <section className="p-6 pt-8">
       <Breadcrumbs items={bcItems} />
       <div className="flex gap-2">
         <div className="flex flex-col items-center justify-center mb-16">
           <Image
-            src={imageURL(data.cover_image.asset._ref)}
-            alt={data.title}
+            src={imageURL(mainSummary.cover_image.asset._ref)}
+            alt={mainSummary.title}
             priority
             width={200}
             height={800}
             className="w-[120px] h-auto lg:w-[200px] rounded-xs shadow-md"
           />
           <div className="mt-4">
-            <Rating starRating={data.rating} count={data.ratings_count} />
+            <Rating
+              starRating={mainSummary.rating}
+              count={mainSummary.ratings_count}
+            />
           </div>
         </div>
         <div className="ml-8 lg:ml-16 w-full">
-          <SummaryHeader {...data} />
+          <SummaryHeader {...mainSummary} />
           <div className="hidden mt-8 lg:block">
-            <SummaryPanel {...data} />
+            <SummaryPanel {...mainSummary} />
           </div>
           <div className="mt-8">
-            <BuyLinkContainer {...data} />
+            <BuyLinkContainer {...mainSummary} />
           </div>
         </div>
       </div>
       <div className="mt-8 lg:hidden">
-        <SummaryPanel {...data} />
+        <SummaryPanel {...mainSummary} />
       </div>
       <div className="-mt-4 lg:-mt-4">
-        <SummaryOverview {...data} />
+        <SummaryOverview {...mainSummary} />
       </div>
       <div className="p-4 flex flex-col lg:flex-row gap-8">
         <Outcomes
           title="What You'll Learn"
-          learning_outcomes={data.learning_outcomes}
+          learning_outcomes={mainSummary.learning_outcomes}
           Icon={Zap}
         />
         <Outcomes
           title="Key Takeaways"
-          learning_outcomes={data.key_takeaways}
+          learning_outcomes={mainSummary.key_takeaways}
           Icon={Lightbulb}
         />
       </div>
       <div className="flex items-center justify-center mt-8">
-        <BuyLinkContainer {...data} />
+        <BuyLinkContainer {...mainSummary} />
       </div>
+      <HorizontalListView
+        title={
+          useAuthor ? `Other Works by ${authorName}` : `More in ${mainCat}`
+        }
+        items={othersArr}
+        description={
+          useAuthor
+            ? "Explore more works by this author."
+            : "Discover more summaries in this category."
+        }
+      />
     </section>
   );
 };

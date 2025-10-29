@@ -3,7 +3,7 @@ import FullStop from "./FullStop";
 const SectionTitle = ({ title, desc }) => {
   return (
     <div className="w-full pt-16 pb-4">
-      <h2 className="relative text-3xl text-primary">
+      <h2 className="relative text-2xl text-primary">
         {title}
         <FullStop />
       </h2>

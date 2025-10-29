@@ -6,7 +6,7 @@ import baroquePattern from "@/public/images/graphics/baroque.jpg";
 const CTAs = () => {
   return (
     <div className="row-span-3 col-span-1 mx-auto max-w-[350px] flex flex-col items-center gap-2">
-      <div className="relative bg-forest py-8 px-4">
+      <div className="relative bg-dark-forest py-8 px-4">
         <Image
           src={baroquePattern}
           alt="Baroque pattern"

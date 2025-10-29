@@ -14,10 +14,9 @@ const SummaryCard = ({
   slug,
   cover_image,
 }) => {
-  console.log(cover_image);
   return (
     <Link href={`/summary/${slug}`}>
-      <div className="p-4 min-w-[200px] min-h-[550px] border-zinc-300 border rounded-md shadow-md flex flex-col justify-between cursor-pointer hover:bg-zinc-100 hover:border-light-gold transition-colors duration-300">
+      <div className="p-4 min-w-[200px] max-w-[250px] min-h-[550px] border-zinc-300 border rounded-md shadow-md flex flex-col justify-between cursor-pointer hover:bg-zinc-100 hover:border-light-gold transition-colors duration-300">
         <div>
           <div className="flex items-center justify-center my-2 mb-4">
             <Image

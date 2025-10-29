@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between h-18 w-full py-2 px-4 border-b-2 border-light-gold md:px-20">
+    <div className="flex items-center justify-between h-14 w-full py-2 px-4 border-b-2 border-light-gold md:px-20">
       <div>
         <Link href="/">
           <Image
