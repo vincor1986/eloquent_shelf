@@ -3,14 +3,13 @@ import Link from "next/link";
 
 import { MoveRight } from "lucide-react";
 
-const TopicCard = ({ topic, description, bg, image, invert = false }) => {
-  const topicUrl = topic.toLowerCase().replace(/ /g, "-");
+const TopicCard = ({ topic, description, bg, image, slug, invert = false }) => {
   const headerTextColor = invert ? "text-white" : "text-primary";
   const textColor = invert ? "text-zinc-200" : "text-primary";
   const lineColor = invert ? "bg-white/20" : "bg-primary/80";
 
   return (
-    <Link href={`/topics/${topicUrl}`} className="group">
+    <Link href={`/topics/${slug}`} className="group">
       <div
         className={`relative rounded-sm shadow-md col-span-1 flex flex-col p-4 h-70 md:h-60 pt-16 pb-5 ${bg} hover:scale-105 hover:z-20 cursor-pointer transition-all duration-500 `}
       >

@@ -24,14 +24,36 @@ export const fetchSummaryWithSlug = async (slug) => {
   }
 };
 
-export const fetchSummariesByCategory = async (category) => {
-  const query = `*[_type == "summary" && $category in categories]`;
-
+export const fetchSummariesByCategory = async (categorySlug) => {
   try {
-    const summaries = await client.fetch(query, { category });
-    return { success: true, data: summaries };
+    const initialQuery = `*[_type == "summary"]`;
+    const allSummaries = await client.fetch(initialQuery);
+
+    const allCategories = Array.from(
+      new Set(
+        allSummaries.reduce((acc, summary) => {
+          return [...acc, ...summary.categories];
+        }, [])
+      )
+    );
+
+    const categoryObj = {};
+
+    allCategories.forEach((cat) => {
+      categoryObj[cat.toLowerCase().replace(/\s+/g, "-")] = cat;
+    });
+
+    const summaries = allSummaries.filter((summary) =>
+      summary.categories.includes(categoryObj[categorySlug])
+    );
+
+    return {
+      success: true,
+      data: summaries,
+      catName: categoryObj[categorySlug],
+    };
   } catch (error) {
-    console.error("Error fetching summary by category:", category, error);
+    console.error("Error fetching summary by category:", categorySlug, error);
     return { success: false, error: error };
   }
 };

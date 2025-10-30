@@ -30,6 +30,7 @@ const Featured = ({
             width={150}
             height={200}
             className="max-w-[150px] lg:max-w-[250px] h-auto m-2"
+            alt={`cover image for ${title}`}
           />
         </Link>
         <div className="ml-2">

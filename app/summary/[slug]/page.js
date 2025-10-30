@@ -18,6 +18,9 @@ import {
   fetchSummariesByCategory,
   fetchSummaryWithSlug,
 } from "@/actions/cms";
+import { summaryType } from "@/sanity/schemaTypes/summaryType";
+import SummaryTagList from "@/components/summary/SummaryTagList";
+import ActionsSection from "@/components/summary/ActionsSection";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
@@ -26,7 +29,7 @@ const SummaryPage = async ({ params }) => {
 
   const { error, data: mainSummary } = await fetchSummaryWithSlug(slug);
 
-  if (error) {
+  if (error || !mainSummary) {
     return notFound();
   }
 
@@ -34,6 +37,7 @@ const SummaryPage = async ({ params }) => {
   const bcItems = [
     ...baseBCItems,
     { label: mainCat, href: `/topics/${mainCat}` },
+    { label: mainSummary.title, href: `#` },
   ];
 
   const authorName = mainSummary.author[0];
@@ -52,6 +56,7 @@ const SummaryPage = async ({ params }) => {
   return (
     <section className="p-6 pt-8">
       <Breadcrumbs items={bcItems} />
+      <ActionsSection />
       <div className="flex gap-2">
         <div className="flex flex-col items-center justify-center mb-16">
           <Image
@@ -78,6 +83,9 @@ const SummaryPage = async ({ params }) => {
             <BuyLinkContainer {...mainSummary} />
           </div>
         </div>
+      </div>
+      <div className="mt-2">
+        <SummaryTagList tagsArr={mainSummary.categories} />
       </div>
       <div className="mt-8 lg:hidden">
         <SummaryPanel {...mainSummary} />

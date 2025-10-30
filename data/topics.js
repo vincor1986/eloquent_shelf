@@ -6,6 +6,7 @@ import ai from "@/public/images/icons/ai.png";
 import selfhelp from "@/public/images/icons/selfhelp.png";
 import commentary from "@/public/images/icons/commentary.png";
 import economics from "@/public/images/icons/economics.png";
+import { slug } from "@/local_ops/db/example-book";
 
 const topics = [
   {
@@ -15,6 +16,7 @@ const topics = [
     bg: "bg-primary",
     image: ai,
     invert: true,
+    slug: "artificial-intelligence",
   },
   {
     topic: "Natural Science",
@@ -23,12 +25,14 @@ const topics = [
     bg: "bg-dark-forest",
     image: science,
     invert: true,
+    slug: "natural-science",
   },
   {
     topic: "Psychology and Mind",
     description: "Delve into the complexities of the human mind and behaviour.",
     bg: "bg-light-gold",
     image: psychology,
+    slug: "psychology",
   },
   {
     topic: "Philosophy",
@@ -36,6 +40,7 @@ const topics = [
       "Traverse the fundamental nature of knowledge, reality, and existence.",
     bg: "bg-light-forest",
     image: philosophy,
+    slug: "philosophy",
   },
   {
     topic: "Self-Improvement",
@@ -43,6 +48,7 @@ const topics = [
       "Discover strategies and insights for personal growth and development.",
     bg: "bg-light-forest",
     image: selfhelp,
+    slug: "self-improvement",
   },
   {
     topic: "History",
@@ -50,6 +56,7 @@ const topics = [
       "Ride the ups and downs of human civilization and uncover the impact of the past on the present and future.",
     bg: "bg-light-gold",
     image: history,
+    slug: "history",
   },
   {
     topic: "Economics",
@@ -58,6 +65,7 @@ const topics = [
     bg: "bg-dark-forest",
     image: economics,
     invert: true,
+    slug: "economics",
   },
   {
     topic: "Big Ideas",
@@ -66,6 +74,7 @@ const topics = [
     bg: "bg-primary",
     image: commentary,
     invert: true,
+    slug: "big-ideas",
   },
 ];
 
