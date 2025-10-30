@@ -81,3 +81,18 @@ export const fetchHomepageFeatured = async () => {
     return { success: false, error: error };
   }
 };
+
+export const fetchSummariesBySearchTerm = async (searchTerm) => {
+  const query = `*[_type == "summary" && (title match $searchTerm || author[] match $searchTerm || categories[] match $searchTerm || tags[] match $searchTerm)]`;
+
+  try {
+    const summaries = await client.fetch(query, {
+      searchTerm: `*${searchTerm}*`,
+    });
+
+    return { success: true, data: summaries };
+  } catch (error) {
+    console.error("Error searching summaries by query:", searchTerm, error);
+    return { success: false, error: error };
+  }
+};

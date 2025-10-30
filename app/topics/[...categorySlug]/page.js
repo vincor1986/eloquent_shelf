@@ -12,8 +12,6 @@ const baseBCItems = [{ label: "Topics", href: "/topics" }];
 const CategoryPage = async ({ params }) => {
   const { categorySlug } = await params;
 
-  console.log("CategorySlug:", categorySlug);
-
   const {
     error,
     data: summaries,
@@ -33,7 +31,10 @@ const CategoryPage = async ({ params }) => {
     <section className="p-4">
       <Breadcrumbs items={bcItems} />
       <CategoryImage categorySlug={categorySlug.toString()} />
-      <SectionTitle title={`Non-fiction in ${catName}`} />
+      <SectionTitle
+        title={`Non-fiction in ${catName}`}
+        desc={`${summaries.length} wonderful books about ${catName}.`}
+      />
       <ListGrid itemsArr={summaries} />
     </section>
   );

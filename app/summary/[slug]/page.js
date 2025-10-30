@@ -45,7 +45,9 @@ const SummaryPage = async ({ params }) => {
     await fetchSummariesByAuthor(authorName);
 
   const { error: categoryError, data: categorySummaries } =
-    await fetchSummariesByCategory(mainSummary.categories[0]);
+    await fetchSummariesByCategory(
+      mainSummary.categories[0].toLowerCase().replace(/\s+/, "-")
+    );
 
   const useAuthor = authorSummaries.length > 1 && !authorError;
 

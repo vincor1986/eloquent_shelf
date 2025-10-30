@@ -14,7 +14,7 @@ const Tag = ({ text }) => {
 
 const SummaryTagList = ({ tagsArr }) => {
   return (
-    <div className="flex flex-wrap gap-1">
+    <div className="flex flex-wrap gap-1 mt-6 lg:mt-0">
       {tagsArr.map((tag) => (
         <Tag key={tag} text={tag} />
       ))}

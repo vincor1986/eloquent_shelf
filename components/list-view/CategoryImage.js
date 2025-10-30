@@ -12,7 +12,7 @@ const CategoryImage = ({ categorySlug }) => {
     <Image
       src={topicImage}
       alt={`icon for ${categorySlug}`}
-      className="absolute top-8 right-4 opacity-10 h-[100px] w-auto invert hue-rotate-90"
+      className="absolute top-8 right-4 opacity-10 h-[100px] w-auto invert"
     />
   );
 };
