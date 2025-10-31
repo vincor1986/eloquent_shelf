@@ -151,7 +151,7 @@ const SearchPage = ({}) => {
               />
               {catFilters.length > 0 || ratingFilter > 0 ? (
                 <p
-                  className="relative top-1 ml-1 text-red-950 text-xs"
+                  className="relative top-1 ml-1 text-red-950 text-xs cursor-pointer"
                   onClick={() => clearFilters("all")}
                 >
                   Clear filters
