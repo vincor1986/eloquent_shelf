@@ -12,7 +12,7 @@ const RatingFilter = ({
   setRatingFilter,
   clear,
 }) => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const toggleRating = (rating) => {
     if (ratingFilter === rating) {

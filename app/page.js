@@ -5,10 +5,11 @@ import Newsletter from "@/components/newsletter/Newsletter";
 import HorizontalListView from "@/components/list-view/HorizontalListView";
 
 import { fetchSummariesWithQuery, fetchHomepageFeatured } from "@/actions/cms";
+import HomepageSearch from "@/components/homepage-hero/HomepageSearch";
 
 const Home = async () => {
   const { error, data: summaries } =
-    await fetchSummariesWithQuery("*[rating > 4]");
+    await fetchSummariesWithQuery("*[rating > 4.3]");
 
   const { error: featuredError, data: featuredSummary } =
     await fetchHomepageFeatured();
@@ -17,6 +18,7 @@ const Home = async () => {
 
   return (
     <div className="">
+      <HomepageSearch />
       <Quote />
       <Hero featuredSummary={featuredSummary} />
       {summaries.length && !error ? (

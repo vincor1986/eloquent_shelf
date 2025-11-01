@@ -29,7 +29,7 @@ const CatFilter = ({
       ) : null}
       <button
         className={`relative px-3 py-1 bg-primary rounded-full text-xs text-white cursor-pointer ${mutated ? "ring-2 ring-light-gold" : null}`}
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal((prev) => !prev)}
       >
         Categories
         {showModal ? (
