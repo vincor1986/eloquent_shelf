@@ -17,9 +17,9 @@ const SummaryCard = ({
   if (!cover_image) return null;
 
   return (
-    <Link href={`/summary/${slug}`}>
-      <div className="p-4 min-w-[200px] max-w-[250px] min-h-[550px] border-zinc-300 border rounded-md shadow-md flex flex-col justify-between cursor-pointer hover:bg-zinc-100 hover:border-light-gold transition-colors duration-300">
-        <div>
+    <div className="p-4 min-w-[200px] max-w-[250px] min-h-[550px] border-zinc-300 border rounded-md shadow-md flex flex-col justify-between hover:bg-zinc-100 hover:border-light-gold transition-colors duration-300">
+      <div>
+        <Link href={`/summary/${slug}`} className="cursor-pointer">
           <div className="flex items-center justify-center my-2 mb-4">
             <Image
               src={imageURL(cover_image.asset._ref)}
@@ -28,7 +28,9 @@ const SummaryCard = ({
               height={225}
             />
           </div>
-          <div className="mb-4">
+        </Link>
+        <div className="mb-4">
+          <Link href={`/summary/${slug}`}>
             <h2 className="text-primary">
               <span className="font-semibold">
                 {title}
@@ -40,17 +42,19 @@ const SummaryCard = ({
                 </span>
               ) : null}
             </h2>
-            <p className="text-secondary text-sm">{formatList(author)}</p>
-          </div>
-          <div className="flex justify-center">
-            <Rating starRating={rating} count={ratings_count} />
-          </div>
+          </Link>
+          <p className="text-secondary text-sm">{formatList(author)}</p>
         </div>
+        <div className="flex justify-center">
+          <Rating starRating={rating} count={ratings_count} />
+        </div>
+      </div>
+      <Link href={`/summary/${slug}`}>
         <button className="w-full mt-6 bg-primary text-white rounded-sm px-4 py-2 cursor-pointer hover:bg-primary/80 transition-colors duration-300 place-self-end">
           Read more
         </button>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
