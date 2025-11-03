@@ -1,11 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { LoaderCircle, Bookmark } from "lucide-react";
 
 import RecommendationCard from "./RecommendationCard";
 
 import { fetchBookRecommendations } from "@/actions/ai";
+
+import readingOwl from "@/public/images/gifs/owl-reading.gif";
 
 const ResultsContainer = ({ formData, results, setResults }) => {
   const [loading, setLoading] = useState(true);
@@ -66,10 +69,14 @@ const ResultsContainer = ({ formData, results, setResults }) => {
       ) : null}
       {loading ? (
         <>
-          <div className="mt-16 py-8 flex w-full flex-col items-center justify-center bg-secondary text-white">
+          <div className="mt-16 py-8 flex w-full flex-col items-center justify-center bg-white text-primary">
+            <div className="relative w-60 h-60 flex items-center justify-center rounded-full overflow-hidden">
+              <Image src={readingOwl} alt="Owl mascot reading" className="" />
+              <div className="absolute h-40 w-40 top-1/2 left-1/2 -translate-1/2 border-6 border-primary rounded-full" />
+            </div>
             <p>We're searching for the perfect books.</p>
             <p>Please wait...</p>
-            <LoaderCircle className="h-14 w-14 animate-spin text-white mt-4" />
+            {/* <LoaderCircle className="h-14 w-14 animate-spin text-primary mt-4" /> */}
           </div>
         </>
       ) : null}
