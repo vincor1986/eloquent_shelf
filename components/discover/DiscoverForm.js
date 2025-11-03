@@ -59,15 +59,17 @@ const DiscoverForm = ({ formData, setFormData, results, setResults }) => {
 
   return (
     <div className="p-4">
-      <div
-        onClick={goBack}
-        className="flex gap-1 text-primary cursor-pointer mb-4"
-      >
-        <button disabled={formIndex === 0}>
-          <ArrowBigLeft className="text-primary" />
-        </button>
-        <p>Back</p>
-      </div>
+      {formIndex > 0 ? (
+        <div
+          onClick={goBack}
+          className="flex gap-1 text-primary cursor-pointer mb-4"
+        >
+          <button disabled={formIndex === 0}>
+            <ArrowBigLeft className="text-primary" />
+          </button>
+          <p>Back</p>
+        </div>
+      ) : null}
       {FORM_STEPS[formIndex]}
       <Progress formIndex={formIndex} />
     </div>

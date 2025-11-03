@@ -21,6 +21,7 @@
     "react-dom": "19.2.0",
     "sanity": "^4.11.0",
     "slugify": "^1.6.6",
+    "string-similarity-js": "^2.1.4",
     "styled-components": "^6.1.19",
     "uuid": "^13.0.0"
   },

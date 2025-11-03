@@ -1,7 +1,7 @@
 const defaultDiscoverData = {
   forMe: true,
   forName: "",
-  forAge: undefined,
+  forAge: "",
   forInterests: [""],
   categories: [],
 };

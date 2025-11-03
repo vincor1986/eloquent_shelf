@@ -7,18 +7,21 @@ import fetchExtraData from "@/lib/discover/fetchExtraData";
 export const fetchBookRecommendations = async (formData, existing) => {
   const prompt = generatePrompt(formData, existing);
 
-  console.log("PROMPT", prompt);
-
   try {
     const response = await gptRequest(prompt);
     const { books } = response;
 
-    console.log("BOOKS", books);
-
     for (let index = 0; index < books.length; index++) {
-      const isbn = books[index].isbn13.replace(/[-\s]/g, "");
-      const { cover_image, rating, ratings_count, page_count } =
-        await fetchExtraData(isbn);
+      const title = books[index].title;
+      const author = books[index].author;
+      const {
+        cover_image,
+        rating,
+        ratings_count,
+        page_count,
+        isbn,
+        authorCheckScore,
+      } = await fetchExtraData(title, author);
 
       books[index] = {
         ...books[index],
@@ -26,10 +29,14 @@ export const fetchBookRecommendations = async (formData, existing) => {
         rating,
         ratings_count,
         page_count,
+        isbn: authorCheckScore > 0.65 ? isbn : null,
       };
     }
 
-    return { success: true, books };
+    return {
+      success: true,
+      books: books.filter((book) => book.isbn !== null),
+    };
   } catch (error) {
     console.error("Error fetching book recommendations:", error);
     return { success: false, error };
