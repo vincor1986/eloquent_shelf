@@ -1,11 +1,18 @@
 import Image from "next/image";
 
-import bookshopLogo from "@/public/images/logos/vendors/bookshop.png";
 import { ShoppingCart } from "lucide-react";
 
-const VendorButton = ({ vendor, url }) => {
+import getVendorURL from "@/lib/helpers/vendorURL";
+
+import bookshopLogo from "@/public/images/logos/vendors/bookshop.png";
+import { getUserRegion } from "@/actions/general";
+
+const VendorButton = async ({ vendor, isbn }) => {
   const logo = vendor === "bookshop" ? bookshopLogo : null;
   const name = vendor === "bookshop" ? "Bookshop.org" : vendor;
+
+  const region = await getUserRegion();
+  const url = getVendorURL(vendor, isbn, region);
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">

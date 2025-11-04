@@ -5,6 +5,8 @@ import { Copse } from "next/font/google";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 
+import RegionProvider from "@/store/RegionContext";
+
 const copse = Copse({
   variable: "--font-copse",
   weight: ["400"],
@@ -21,11 +23,13 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body className={`${copse.variable} antialiased w-full`}>
-        <Header />
-        <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto">
-          {children}
-        </main>
-        <Footer />
+        <RegionProvider>
+          <Header />
+          <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto">
+            {children}
+          </main>
+          <Footer />
+        </RegionProvider>
       </body>
     </html>
   );

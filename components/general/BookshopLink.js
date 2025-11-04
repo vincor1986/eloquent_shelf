@@ -6,12 +6,15 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 
 import bookshopLogo from "@/public/images/logos/vendors/bookshop.png";
+import useRegionCtx from "@/store/useRegionCtx";
 
-const BookshopLink = ({ isbn, children, region = "UK" }) => {
+const BookshopLink = ({ isbn, children }) => {
+  const region = useRegionCtx();
+
   const aID =
-    region === "UK" ? "16540" : process.env.NEXT_PUBLIC_BOOKSHOP_US_ID;
+    region === "GB" ? "16540" : process.env.NEXT_PUBLIC_BOOKSHOP_US_ID;
 
-  const bookshopURL = `https://${region === "UK" ? "uk." : ""}bookshop.org/a/${aID}/${isbn}`;
+  const bookshopURL = `https://${region === "GB" ? "uk." : ""}bookshop.org/a/${aID}/${isbn}`;
 
   return (
     <Link href={bookshopURL} target="_blank" rel="noopener noreferrer">

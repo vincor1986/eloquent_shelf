@@ -21,6 +21,7 @@ import {
 import { summaryType } from "@/sanity/schemaTypes/summaryType";
 import SummaryTagList from "@/components/summary/SummaryTagList";
 import ActionsSection from "@/components/summary/ActionsSection";
+import BookshopLink from "@/components/general/BookshopLink";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
