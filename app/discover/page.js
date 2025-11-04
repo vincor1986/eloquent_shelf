@@ -8,6 +8,9 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 import defaultDiscoverData from "@/data/defaultDIscoverData";
 
+import aiSymbol from "@/public/images/icons/ai.png";
+import Image from "next/image";
+
 const DiscoverPage = () => {
   const [formData, setFormData] = useState(defaultDiscoverData);
   const [results, setResults] = useState([]);
@@ -18,8 +21,15 @@ const DiscoverPage = () => {
 
   return (
     <section className="px-4">
-      <div className="w-min rounded-full mx-auto p-3 bg-primary/10 flex items-center justify-center -mb-12">
-        <Telescope className="w-10 h-10 text-primary" />
+      <div className="w-min rounded-full mx-auto p-3 flex items-center justify-center -mb-12">
+        <Telescope className="relative z-15 w-10 h-10 text-primary fill-white" />
+        <div className="relative z-10 -ml-3.75 -top-4 bg-primary w-13 h-13 rounded-full ">
+          <Image
+            src={aiSymbol}
+            alt="Stars in sky"
+            className="absolute top-1.5 right-1.5 h-8 w-8"
+          />
+        </div>
       </div>
       <SectionTitle
         title="Discover the Perfect Non-Fiction Read"

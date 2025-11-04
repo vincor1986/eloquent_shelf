@@ -11,13 +11,20 @@ import Interests from "./Interests";
 import Categories from "./Categories";
 import Progress from "./Prgoress";
 import ResultsContainer from "./ResultsContainer";
+import RecipientSelect from "./RecipientSelect";
 
 const DiscoverForm = ({ formData, setFormData, results, setResults }) => {
   const [formIndex, setFormIndex] = useState(0);
 
   const FORM_STEPS = [
-    <RecipientRadio
-      key="recipient-radio"
+    // <RecipientRadio
+    //   key="recipient-radio"
+    //   formData={formData}
+    //   setFormData={setFormData}
+    //   setFormIndex={setFormIndex}
+    // />,
+    <RecipientSelect
+      key="recipient-select"
       formData={formData}
       setFormData={setFormData}
       setFormIndex={setFormIndex}

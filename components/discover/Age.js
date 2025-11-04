@@ -12,9 +12,12 @@ const Age = ({ formData, setFormData, setFormIndex }) => {
 
   return (
     <div className="w-full p-4 border border-zinc-200 rounded-md text-primary">
-      <h2 className="text-xl font-medium mb-4">
+      <h2 className="text-xl font-medium mb-2">
         How old {formData.forMe ? "are you?" : "is the recipient?"}
       </h2>
+      <p className="mb-4 italic">
+        Providing an age helps our AI system to make better recommendations.
+      </p>
       <div className="flex flex-col gap-4">
         <label className="flex items-center gap-2">
           <input

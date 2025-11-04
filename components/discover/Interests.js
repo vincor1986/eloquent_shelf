@@ -32,9 +32,13 @@ const Interests = ({ formData, setFormData, setFormIndex }) => {
 
   return (
     <div className="w-full p-4 border border-zinc-200 rounded-md text-primary">
-      <h2 className="text-xl font-medium mb-4">
+      <h2 className="text-xl font-medium mb-2">
         What are {formData.forMe ? "your" : "their"} interests?
       </h2>
+      <p className="mb-4 italic">
+        Providing interests gives context to our AI system, enabling more
+        accurate, tailored results. Try to add at least 3 interests if you can.
+      </p>
       <div className="flex flex-col gap-4 w-full">
         {interestArr.map((interest, index, arr) => (
           <div key={index} className="flex gap-2">

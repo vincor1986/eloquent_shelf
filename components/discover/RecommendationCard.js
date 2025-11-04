@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+
 import Rating from "../general/Rating";
 import SummaryPanel from "../summary/SummaryPanel";
-import { ShoppingCart } from "lucide-react";
+import BookshopLink from "../general/BookshopLink";
 
 const RecommendationCard = ({
   title,
@@ -45,16 +45,9 @@ const RecommendationCard = ({
         page_count={page_count}
         read_time_minutes={read_time_minutes}
       />
-      <Link
-        href={`https://uk.bookshop.org/a/16540/${isbn}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <button className="mt-8 bg-primary text-white rounded-sm cursor-pointer px-4 py-2 flex items-center hover:bg-secondary transition-colors duration-300">
-          <ShoppingCart className="mr-2" />
-          <span>Check for stock with Bookshop.org</span>
-        </button>
-      </Link>
+      <div className="flex w-full gap-2 items-center justify-end">
+        <BookshopLink isbn={isbn}>via Bookshop.org</BookshopLink>
+      </div>
     </div>
   );
 };

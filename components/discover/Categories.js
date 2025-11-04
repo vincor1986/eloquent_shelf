@@ -30,9 +30,13 @@ const Categories = ({ formData, setFormData, setFormIndex }) => {
 
   return (
     <div className="w-full p-4 border border-zinc-200 rounded-md text-primary">
-      <h2 className="text-xl font-medium mb-4">
+      <h2 className="text-xl font-medium mb-2">
         What type of non-fiction books are you interested in looking at?
       </h2>
+      <p className="mb-4 italic">
+        These categories will inform which type of books are recommended. Select
+        one or more, as many as you like.
+      </p>
       <div className="flex flex-wrap gap-4 w-full">
         {CAT_LIST.map((category) => (
           <label key={category} className="flex items-center w-2/5">
