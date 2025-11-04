@@ -96,3 +96,25 @@ export const fetchSummariesBySearchTerm = async (searchTerm) => {
     return { success: false, error: error };
   }
 };
+
+export const fetchAllCategories = async () => {
+  const query = `*[_type == "summary"]{ categories }`;
+
+  try {
+    const categories = await client.fetch(query);
+    const allCats = categories.flatMap((obj) => obj.categories);
+
+    const catObj = {};
+
+    allCats.forEach((cat) => {
+      if (!catObj[cat]) {
+        catObj[cat] = allCats.filter((category) => category === cat).length;
+      }
+    });
+
+    return { success: true, data: catObj };
+  } catch (error) {
+    console.error("Error fetching all categories:", error);
+    return { success: false, error: error };
+  }
+};
