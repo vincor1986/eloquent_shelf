@@ -99,8 +99,7 @@ const ContactFormPage = () => {
           <div className="bg-light-forest absolute top-0 left-0 w-full h-full overflow-hidden rounded-md -z-10">
             <Image
               src={baroque}
-              className="w-full h-auto opacity-6"
-              objectFit="cover"
+              className="w-full h-auto opacity-6 object-cover"
               priority
             />
           </div>

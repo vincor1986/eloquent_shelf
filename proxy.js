@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export function middleware(req) {
+export function proxy(req) {
   const country =
     req.geo?.country || req.headers.get("x-vercel-ip-country") || "GB";
 

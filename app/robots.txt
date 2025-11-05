@@ -1,0 +1,27 @@
+# robots.txt for https://www.eloquentshelf.com
+
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /api/
+Disallow: /private/
+Disallow: /drafts/
+
+Disallow: /*?utm_
+Disallow: /*?ref=
+
+Sitemap: https://www.eloquentshelf.com/sitemap.xml
+
+User-agent: Bingbot
+Crawl-delay: 3
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
