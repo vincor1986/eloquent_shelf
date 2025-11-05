@@ -118,3 +118,15 @@ export const fetchAllCategories = async () => {
     return { success: false, error: error };
   }
 };
+
+export const fetchByBookmarks = async (bookmarkIds) => {
+  const query = `*[_type == "summary" && _id in $bookmarkIds]`;
+
+  try {
+    const summaries = await client.fetch(query, { bookmarkIds });
+    return { success: true, data: summaries };
+  } catch (error) {
+    console.error("Error fetching summaries by bookmarks:", error);
+    return { success: false, error: error };
+  }
+};

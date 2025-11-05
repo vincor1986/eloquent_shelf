@@ -11,6 +11,8 @@ import BuyLinkContainer from "@/components/summary/BuyLinkContainer";
 import SummaryOverview from "@/components/summary/SummaryOverview";
 import Outcomes from "@/components/summary/Outcomes";
 import HorizontalListView from "@/components/list-view/HorizontalListView";
+import SummaryTagList from "@/components/summary/SummaryTagList";
+import ActionsSection from "@/components/summary/ActionsSection";
 
 import imageURL from "@/lib/cms/imageURL";
 import {
@@ -18,10 +20,6 @@ import {
   fetchSummariesByCategory,
   fetchSummaryWithSlug,
 } from "@/actions/cms";
-import { summaryType } from "@/sanity/schemaTypes/summaryType";
-import SummaryTagList from "@/components/summary/SummaryTagList";
-import ActionsSection from "@/components/summary/ActionsSection";
-import BookshopLink from "@/components/general/BookshopLink";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
@@ -59,7 +57,7 @@ const SummaryPage = async ({ params }) => {
   return (
     <section className="p-6 pt-8">
       <Breadcrumbs items={bcItems} />
-      <ActionsSection />
+      <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
       <div className="flex gap-2">
         <div className="flex flex-col items-center justify-center mb-16">
           <Image

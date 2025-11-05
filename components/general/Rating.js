@@ -17,7 +17,7 @@ const StarFill = (percent, key) => (
   <div className="relative h-6 w-6" key={key}>
     <div
       className="absolute border border-white top-0 left-0 h-6 bg-light-gold/90"
-      style={{ width: `${percent + 8}%` }}
+      style={{ width: `${percent}%` }}
     ></div>
     <StarImage className="rounded-xs" />
   </div>

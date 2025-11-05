@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { LoaderCircle, MailCheck } from "lucide-react";
 import { useReCaptcha } from "next-recaptcha-v3";
@@ -13,6 +13,7 @@ import { submitContactForm } from "@/actions/general";
 import useRegionCtx from "@/store/useRegionCtx";
 
 import baroque from "@/public/images/graphics/baroque90.jpg";
+import { useSearchParams } from "next/navigation";
 
 const DEFAULT_FORM_DATA = {
   name: "",
@@ -27,8 +28,21 @@ const ContactFormPage = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  const urlParams = useSearchParams();
+  const slug = urlParams.get("slug");
+  const subject = urlParams.get("subject");
+
+  console.log("slug", slug);
+
   const region = useRegionCtx();
   const { executeRecaptcha } = useReCaptcha();
+
+  useEffect(() => {
+    if (slug && subject === "inaccuracy") {
+      const message = `I'd like to flag an inaccuracy with the book with slug: "${slug}" - please see my comments below: \n\n`;
+      setFormData((prev) => ({ ...prev, subject, message }));
+    }
+  }, []);
 
   const setErrorMessage = (msg) => {
     setError(msg);
@@ -100,6 +114,7 @@ const ContactFormPage = () => {
             <Image
               src={baroque}
               className="w-full h-auto opacity-6 object-cover"
+              alt="Decorative background image"
               priority
             />
           </div>
