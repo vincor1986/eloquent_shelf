@@ -11,7 +11,7 @@ const AboutPage = () => {
       <Breadcrumbs items={[{ label: "about", href: "/about" }]} />
       <SectionTitle title="About Eloquent Shelf" />
       <div className="relative h-80 w-full overflow-hidden">
-        <Image src={bookshelfImage} alt="Bookshelf" />
+        <Image src={bookshelfImage} alt="Bookshelf" priority />
         <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-primary to-light-gold/0" />
         <div className="absolute bottom-6 left-0 w-1/2 p-4 lg:left-6">
           <p className="text-white text-xl lg:text-4xl">

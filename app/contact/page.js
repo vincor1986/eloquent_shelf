@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import { LoaderCircle, MailCheck } from "lucide-react";
@@ -10,6 +11,8 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 import { submitContactForm } from "@/actions/general";
 import useRegionCtx from "@/store/useRegionCtx";
+
+import baroque from "@/public/images/graphics/baroque90.jpg";
 
 const DEFAULT_FORM_DATA = {
   name: "",
@@ -90,12 +93,20 @@ const ContactFormPage = () => {
       />
       {!success ? (
         <form
-          className="flex flex-col border border-zinc-300 p-4 rounded-md shadow-md max-w-[600px] mx-auto mt-8 pb-12  bg-parchment"
+          className="relative flex flex-col border border-zinc-300 p-4 rounded-md shadow-md max-w-[700px] mx-auto mt-8 pb-12 "
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
+          <div className="bg-light-forest absolute top-0 left-0 w-full h-full overflow-hidden rounded-md -z-10">
+            <Image
+              src={baroque}
+              className="w-full h-auto opacity-6"
+              objectFit="cover"
+              priority
+            />
+          </div>
+          <div className="flex flex-col rounded-md text-primary">
             <label htmlFor="name" className="font-bold">
-              Your name: <span className="text-secondary">*</span>
+              Your name: <span className="text-primary">*</span>
             </label>
             <input
               className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
@@ -108,9 +119,9 @@ const ContactFormPage = () => {
               required
             />
           </div>
-          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col rounded-md text-primary">
             <label htmlFor="email" className="font-bold">
-              Your email address: <span className="text-secondary">*</span>
+              Your email address: <span className="text-primary">*</span>
             </label>
             <input
               className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
@@ -123,9 +134,9 @@ const ContactFormPage = () => {
               required
             />
           </div>
-          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col rounded-md text-primary">
             <label htmlFor="subject" className="font-bold">
-              Subject: <span className="text-secondary">*</span>
+              Subject: <span className="text-primary">*</span>
             </label>
             <select
               className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
@@ -146,9 +157,9 @@ const ContactFormPage = () => {
               <option value="other">Other</option>
             </select>
           </div>
-          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col rounded-md text-primary">
             <label htmlFor="message" className="font-bold">
-              Your message: <span className="text-secondary">*</span>
+              Your message: <span className="text-primary">*</span>
             </label>
             <textarea
               className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
@@ -163,7 +174,7 @@ const ContactFormPage = () => {
           </div>
           <button
             type="submit"
-            className="mx-auto w-full max-w-[400px] py-2 px-4 text-white bg-primary rounded-md cursor-pointer hover:bg-secondary transition-colors duration-300"
+            className="mx-auto mt-8 w-full max-w-[400px] py-2 px-4 text-white bg-primary rounded-md cursor-pointer hover:bg-secondary transition-colors duration-300"
           >
             Submit message
           </button>

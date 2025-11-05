@@ -126,7 +126,7 @@ const SearchPage = ({}) => {
     <section className="p4 -mt-16">
       <SectionTitle
         title="Search our curated works"
-        desc="Search functionality coming soon!"
+        desc="Search through our curated collection of non-fiction. Unmissable reads, just a few clicks away."
       />
       <SearchBar query={query} setQuery={setQuery} />
       {results.length ? (
