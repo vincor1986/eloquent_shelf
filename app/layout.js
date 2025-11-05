@@ -22,7 +22,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${copse.variable} antialiased w-full`}>
+      <body
+        className={`${copse.variable} antialiased w-full text-black bg-white`}
+      >
         <RegionProvider>
           <Header />
           <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto">
