@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { LoaderCircle, MailCheck } from "lucide-react";
+import { useReCaptcha } from "next-recaptcha-v3";
 
 import SectionTitle from "@/components/ui/SectionTitle";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
@@ -24,6 +25,7 @@ const ContactFormPage = () => {
   const [success, setSuccess] = useState(false);
 
   const region = useRegionCtx();
+  const { executeRecaptcha } = useReCaptcha();
 
   const setErrorMessage = (msg) => {
     setError(msg);
@@ -53,12 +55,22 @@ const ContactFormPage = () => {
       return;
     }
 
+    const token = await executeRecaptcha("contact_form_submit");
+
+    if (!token) {
+      setErrorMessage("ReCaptcha verification failed. Please try again later.");
+      return;
+    }
+
     setLoading(true);
 
-    const { success, error } = await submitContactForm({
-      ...formData,
-      region: region,
-    });
+    const { success, error } = await submitContactForm(
+      {
+        ...formData,
+        region: region,
+      },
+      token
+    );
 
     if (!success) {
       setErrorMessage(error);

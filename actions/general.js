@@ -8,10 +8,31 @@ export const getUserRegion = async () => {
   return region;
 };
 
-export const submitContactForm = async (formData) => {
+export const submitContactForm = async (formData, token) => {
   const CONTACT_FORM_URL = process.env.CONTACT_FORM_URL;
 
   try {
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_KEY,
+        response: token,
+      }),
+    };
+
+    const res = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      params
+    );
+
+    const { success } = await res.json();
+
+    if (!success)
+      return { success: false, error: "ReCaptcha verification failed" };
+
     const response = await fetch(CONTACT_FORM_URL, {
       method: "POST",
       headers: {

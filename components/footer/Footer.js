@@ -77,19 +77,19 @@ const Footer = () => {
             </div>
             <div className="mt-4 flex flex-col gap-2 items-center text-white text-sm">
               <Link
-                href="/legal"
+                href="/legal/terms-of-use"
                 className="hover:text-gold transition-colors duration-300"
               >
                 Terms of Use
               </Link>
               <Link
-                href="/privacy"
+                href="/legal/privacy-policy"
                 className="hover:text-gold transition-colors duration-300"
               >
                 Privacy Notice
               </Link>
               <Link
-                href="/affiliate-disclosure"
+                href="/legal/affiliate-disclosure"
                 className="hover:text-gold transition-colors duration-300"
               >
                 Affiliate Disclosure
