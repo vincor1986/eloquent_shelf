@@ -81,12 +81,12 @@ const ContactFormPage = () => {
           className="flex flex-col border border-zinc-300 p-4 rounded-md shadow-md max-w-[600px] mx-auto mt-8 pb-12  bg-parchment"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col p-4 border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
             <label htmlFor="name" className="font-bold">
               Your name: <span className="text-secondary">*</span>
             </label>
             <input
-              className="px-4 py-2 border border-zinc-300 rounded-sm w-full max-w-lg mt-2 mb-4 bg-white"
+              className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
               id="name"
               name="name"
               type="text"
@@ -96,12 +96,12 @@ const ContactFormPage = () => {
               required
             />
           </div>
-          <div className="flex flex-col p-4 border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
             <label htmlFor="email" className="font-bold">
               Your email address: <span className="text-secondary">*</span>
             </label>
             <input
-              className="px-4 py-2 border border-zinc-300 rounded-sm w-full max-w-lg mt-2 mb-4 bg-white"
+              className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
               id="email"
               name="email"
               type="text"
@@ -111,12 +111,12 @@ const ContactFormPage = () => {
               required
             />
           </div>
-          <div className="flex flex-col p-4 border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
             <label htmlFor="subject" className="font-bold">
               Subject: <span className="text-secondary">*</span>
             </label>
             <select
-              className="px-4 py-2 border border-zinc-300 rounded-sm w-full max-w-lg mt-2 mb-4 bg-white"
+              className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
               id="subject"
               name="subject"
               type="text"
@@ -134,12 +134,12 @@ const ContactFormPage = () => {
               <option value="other">Other</option>
             </select>
           </div>
-          <div className="flex flex-col p-4 border border-zinc-100 rounded-md text-primary">
+          <div className="flex flex-col border border-zinc-100 rounded-md text-primary">
             <label htmlFor="message" className="font-bold">
               Your message: <span className="text-secondary">*</span>
             </label>
             <textarea
-              className="px-4 py-2 border border-zinc-300 rounded-sm w-full max-w-lg mt-2 mb-4 bg-white"
+              className="px-4 py-2 border border-zinc-300 rounded-sm w-full mt-2 mb-4 bg-white"
               id="message"
               name="message"
               value={formData.message}
