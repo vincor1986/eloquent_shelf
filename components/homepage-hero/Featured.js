@@ -15,7 +15,7 @@ const Featured = ({
   slug,
 }) => {
   const catCount = categories.length;
-  const showCatArr = categories.slice(0, 4);
+  const showCatArr = categories.slice(0, 3);
 
   return (
     <div className="col-span-1 row-span-3 rounded-sm p-2 text-primary">
@@ -43,11 +43,11 @@ const Featured = ({
               {subtitle}
             </p>
           </Link>
-          <p className="text-zinc-400">{formatList(author)}</p>
+          <p className="my-4 text-zinc-400">{formatList(author)}</p>
           <TagList
             tags={[
               ...showCatArr,
-              catCount < 5 ? null : `+ ${catCount - 5} more`,
+              catCount < 4 ? null : `+ ${catCount - 4} more`,
             ]}
           />
         </div>
@@ -56,7 +56,7 @@ const Featured = ({
       <Link href={`/summary/${slug}`}>
         <p className="text-sm line-clamp-8 text-ellipsis">{summary}</p>
         <p className="mt-2 pr-4 w-full text-gold text-right text-sm bold cursor-pointer">
-          Read more
+          More
         </p>
       </Link>
     </div>

@@ -32,6 +32,7 @@ const HomepageSearch = () => {
         className="h-9.5 p-2 pr-3 bg-primary rounded-r-full text-white cursor-pointer hover:bg-secondary transition-colors duration-300"
         onClick={handleSearch}
         disabled={!q}
+        aria-label="Search"
       >
         <Search className="text-white" />
       </button>

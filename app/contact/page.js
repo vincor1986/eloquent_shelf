@@ -32,8 +32,6 @@ const ContactFormPage = () => {
   const slug = urlParams.get("slug");
   const subject = urlParams.get("subject");
 
-  console.log("slug", slug);
-
   const region = useRegionCtx();
   const { executeRecaptcha } = useReCaptcha();
 
@@ -107,19 +105,20 @@ const ContactFormPage = () => {
       />
       {!success ? (
         <form
-          className="relative flex flex-col border border-zinc-300 p-4 rounded-md shadow-md max-w-[700px] mx-auto mt-8 pb-12 "
+          className="relative flex flex-col border border-light-forest p-4 rounded-md shadow-md max-w-[700px] mx-auto mt-8 pb-12 "
           onSubmit={handleSubmit}
         >
-          <div className="bg-light-forest absolute top-0 left-0 w-full h-full overflow-hidden rounded-md -z-10">
+          <div className="bg-white absolute top-0 left-0 w-full h-full overflow-hidden rounded-md -z-10">
             <Image
               src={baroque}
               className="w-full h-auto opacity-6 object-cover"
               alt="Decorative background image"
               priority
+              width={700}
             />
           </div>
           <div className="flex flex-col rounded-md text-primary">
-            <label htmlFor="name" className="font-bold">
+            <label htmlFor="name">
               Your name: <span className="text-primary">*</span>
             </label>
             <input
@@ -134,7 +133,7 @@ const ContactFormPage = () => {
             />
           </div>
           <div className="flex flex-col rounded-md text-primary">
-            <label htmlFor="email" className="font-bold">
+            <label htmlFor="email">
               Your email address: <span className="text-primary">*</span>
             </label>
             <input
@@ -149,7 +148,7 @@ const ContactFormPage = () => {
             />
           </div>
           <div className="flex flex-col rounded-md text-primary">
-            <label htmlFor="subject" className="font-bold">
+            <label htmlFor="subject">
               Subject: <span className="text-primary">*</span>
             </label>
             <select
@@ -172,7 +171,7 @@ const ContactFormPage = () => {
             </select>
           </div>
           <div className="flex flex-col rounded-md text-primary">
-            <label htmlFor="message" className="font-bold">
+            <label htmlFor="message">
               Your message: <span className="text-primary">*</span>
             </label>
             <textarea

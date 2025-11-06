@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 import mainLogo from "@/public/images/logos/main-logo.png";
-import BurgerIcon from "./BurgerIcon";
 import Link from "next/link";
 
 import { Bookmark, MenuIcon } from "lucide-react";

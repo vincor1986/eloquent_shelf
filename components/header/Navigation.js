@@ -14,13 +14,13 @@ const Navigation = () => {
         const active = currentUrl.startsWith(link.href);
 
         return (
-          <Link key={link.title} href={link.href}>
-            <button
-              className={`flex items-center gap-2 px-3 py-2 rounded transition-colors duration-300 cursor-pointer ${active ? "bg-primary text-white pointer-events-none cursor-pointer" : "hover:bg-secondary hover:text-white text-primary"}`}
-            >
-              <link.icon />
-              {link.title}
-            </button>
+          <Link
+            key={link.title}
+            href={link.href}
+            className={`flex items-center gap-2 px-3 py-2 rounded transition-colors duration-300 cursor-pointer ${active ? "bg-primary text-white pointer-events-none cursor-pointer" : "hover:bg-secondary hover:text-white text-primary"}`}
+          >
+            <link.icon />
+            {link.title}
           </Link>
         );
       })}
