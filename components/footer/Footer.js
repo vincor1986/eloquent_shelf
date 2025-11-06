@@ -46,7 +46,7 @@ const Footer = () => {
             Gift Cards
           </Link>
           <Link
-            href="/cookies"
+            href="/manage-cookies"
             className="hover:text-gold transition-colors duration-300"
           >
             Manage Cookies

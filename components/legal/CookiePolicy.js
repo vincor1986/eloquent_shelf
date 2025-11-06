@@ -41,7 +41,8 @@ const CookiePolicy = () => {
       <LegalPara>
         On first visit we display a cookie banner explaining types and asking
         for consent for non-essential cookies. You may revoke consent in the
-        banner or your account settings.
+        banner or by visiting the{" "}
+        <TextLink href="/manage-cookies">Manage Cookies</TextLink> page.
       </LegalPara>
 
       <LegalHeading>Managing cookies</LegalHeading>

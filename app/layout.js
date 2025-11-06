@@ -6,6 +6,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 
 import RegionProvider from "@/store/RegionContext";
+import CookieBanner from "@/components/general/CookiesModal";
 
 const copse = Copse({
   variable: "--font-copse",
@@ -31,6 +32,7 @@ const RootLayout = ({ children }) => {
             {children}
           </main>
           <Footer />
+          <CookieBanner />
         </RegionProvider>
       </body>
     </html>
