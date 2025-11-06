@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { ArrowBigLeft } from "lucide-react";
 
-import RecipientRadio from "./RecipientRadio";
 import RecipientName from "./RecipientName";
 import Age from "./Age";
 import Interests from "./Interests";
@@ -17,12 +16,6 @@ const DiscoverForm = ({ formData, setFormData, results, setResults }) => {
   const [formIndex, setFormIndex] = useState(0);
 
   const FORM_STEPS = [
-    // <RecipientRadio
-    //   key="recipient-radio"
-    //   formData={formData}
-    //   setFormData={setFormData}
-    //   setFormIndex={setFormIndex}
-    // />,
     <RecipientSelect
       key="recipient-select"
       formData={formData}
@@ -77,7 +70,9 @@ const DiscoverForm = ({ formData, setFormData, results, setResults }) => {
           <p>Back</p>
         </div>
       ) : null}
-      {FORM_STEPS[formIndex]}
+      <div className={`${formIndex === 5 ? "" : "max-w-[600px] mx-auto"}`}>
+        {FORM_STEPS[formIndex]}
+      </div>
       <Progress formIndex={formIndex} />
     </div>
   );

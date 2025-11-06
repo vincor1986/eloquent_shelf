@@ -26,7 +26,7 @@ const BookmarksPage = () => {
 
       setLoading(false);
     })();
-  }, []);
+  }, [bookmarks]);
 
   return (
     <section className="p-4">

@@ -98,6 +98,14 @@ export const GET = async () => {
           <priority>0.6</priority>
         </url>
         <url>
+          <loc>${baseUrl}/bookmarks</loc>
+          <priority>0.6</priority>
+        </url>
+        <url>
+          <loc>${baseUrl}/manage-cookies</loc>
+          <priority>0.2</priority>
+        </url>
+        <url>
           <loc>${baseUrl}/legal</loc>
           <changefreq>monthly</changefreq>
           <priority>0.2</priority>
