@@ -6,11 +6,12 @@ import HorizontalListView from "@/components/list-view/HorizontalListView";
 
 import { fetchSummariesWithQuery, fetchHomepageFeatured } from "@/actions/cms";
 import HomepageSearch from "@/components/homepage-hero/HomepageSearch";
-import { getUserRegion } from "@/actions/general";
 
 const Home = async () => {
-  const { error, data: summaries } =
-    await fetchSummariesWithQuery("*[rating > 4.3]");
+  const { error, data: summaries } = await fetchSummariesWithQuery(
+    "*[rating > 4.3]",
+    12
+  );
 
   const { error: featuredError, data: featuredSummary } =
     await fetchHomepageFeatured();

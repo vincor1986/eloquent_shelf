@@ -2,9 +2,14 @@
 
 import client from "@/lib/cms/client";
 
-export const fetchSummariesWithQuery = async (query) => {
+export const fetchSummariesWithQuery = async (query, limit = false) => {
   try {
-    const summaries = await client.fetch(query);
+    let summaries = await client.fetch(query);
+
+    if (limit && summaries.length > limit) {
+      summaries = summaries.sort(() => Math.random() - 0.5).slice(0, limit);
+    }
+
     return { success: true, data: summaries };
   } catch (error) {
     console.error("Error fetching summaries:", error);

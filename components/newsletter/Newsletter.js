@@ -4,6 +4,7 @@ import SectionTitle from "../ui/SectionTitle";
 
 import newsletterOwl from "@/public/images/graphics/newsletter-owl.png";
 import NewsletterForm from "./NewsletterForm";
+import { ReCaptchaProvider } from "next-recaptcha-v3";
 
 const Newsletter = () => {
   return (
@@ -24,7 +25,11 @@ const Newsletter = () => {
             Join our weekly newsletter to stay updated on the latest non-fiction
             recommendations and insights.
           </p>
-          <NewsletterForm />
+          <ReCaptchaProvider
+            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          >
+            <NewsletterForm />
+          </ReCaptchaProvider>
         </div>
       </div>
     </section>

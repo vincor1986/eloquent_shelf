@@ -6,12 +6,15 @@ import { MailCheck, LoaderCircle } from "lucide-react";
 import TextLink from "../ui/TextLink";
 
 import { addToMailingList } from "@/actions/mailing-list";
+import { useReCaptcha } from "next-recaptcha-v3";
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
+
+  const { executeRecaptcha } = useReCaptcha();
 
   const setErrorMessage = (msg) => {
     setError(msg);
@@ -22,6 +25,14 @@ const NewsletterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const token = await executeRecaptcha("contact_form_submit");
+
+    if (!token) {
+      setErrorMessage("ReCaptcha verification failed. Please try again later.");
+      return;
+    }
+
     setSending(true);
 
     if (email.trim() === "" || !email.includes("@")) {
@@ -30,7 +41,7 @@ const NewsletterForm = () => {
       return;
     }
 
-    const { success } = await addToMailingList(email);
+    const { success } = await addToMailingList(email, token);
 
     if (!success) {
       setErrorMessage("There was an error, please try again later.");
