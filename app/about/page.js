@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 const AboutPage = () => {
   return (
-    <section className="p4 pb-16">
+    <section className="lg:p4 pb-16">
       <Breadcrumbs items={[{ label: "about", href: "/about" }]} />
       <SectionTitle title="About Eloquent Shelf" />
       <div className="relative h-80 w-full overflow-hidden">

@@ -97,7 +97,7 @@ const ContactFormPage = () => {
   };
 
   return (
-    <section className="px-4">
+    <section className="lg:px-4">
       <Breadcrumbs items={[{ label: "contact", href: "/contact" }]} />
       <SectionTitle
         title="Get in touch"

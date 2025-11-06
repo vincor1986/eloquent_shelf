@@ -18,9 +18,13 @@ const TopicCard = ({ topic, description, bg, image, slug, invert = false }) => {
           alt={`${topic} topic image`}
           className="absolute top-4 right-4 h-1/4 w-auto opacity-25"
         />
-        <h1 className={`relative z-10 text-2xl ${headerTextColor}`}>{topic}</h1>
+        <h1 className={`relative z-10 text-lg lg:text-2xl ${headerTextColor}`}>
+          {topic}
+        </h1>
         <div className={`w-full h-0.75 relative z-10 ${lineColor}`} />
-        <p className={`${textColor} italic relative z-10 mt-2`}>
+        <p
+          className={`${textColor} italic relative text-sm lg:text-lg z-10 mt-2`}
+        >
           {description}
         </p>
         <MoveRight

@@ -29,7 +29,7 @@ const BookmarksPage = () => {
   }, [bookmarks]);
 
   return (
-    <section className="p-4">
+    <section className="lg:p-4">
       <SectionTitle
         title="Your Bookmarks"
         desc="View your saved book summaries."

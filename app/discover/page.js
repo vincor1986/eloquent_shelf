@@ -20,7 +20,7 @@ const DiscoverPage = () => {
   }, [formData]);
 
   return (
-    <section className="px-4">
+    <section className="lg:px-4">
       <div className="w-min rounded-full mx-auto p-3 flex items-center justify-center -mb-12">
         <Telescope className="relative z-15 w-10 h-10 text-primary fill-white" />
         <div className="relative z-10 -ml-3.75 -top-4 bg-primary w-13 h-13 rounded-full ">

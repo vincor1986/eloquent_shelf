@@ -28,7 +28,7 @@ const RootLayout = ({ children }) => {
       >
         <RegionProvider>
           <Header />
-          <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto">
+          <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto bg-white">
             {children}
           </main>
           <Footer />

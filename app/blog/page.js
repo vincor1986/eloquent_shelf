@@ -1,9 +1,11 @@
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { TrafficCone } from "lucide-react";
 
 const BlogPage = () => {
   return (
-    <section className="p-4">
+    <section className="lg:p-4 -mt-4">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
       <SectionTitle title="The Eloquent Shelf Blog" />
       <div className="pt-30 h-full w-full flex flex-col items-center justify-center">
         <TrafficCone className="text-primary fill-light-gold h-22 w-22" />

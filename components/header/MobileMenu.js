@@ -34,7 +34,8 @@ const MobileMenu = ({ closeMenu }) => {
             >
               <Link
                 href={link.href}
-                className="group-hover:text-white flex items-center gap-2 text-xl"
+                onClick={closeMenu}
+                className="text-primary group-hover:text-white flex items-center gap-2 text-xl"
               >
                 <link.icon className="" />
                 {link.title}

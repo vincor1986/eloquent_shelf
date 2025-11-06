@@ -14,7 +14,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="relative flex items-center justify-between h-14 w-full py-2 px-4 border-b-2 border-light-gold md:px-20 z-40">
+    <div className="relative flex items-center justify-between h-14 w-full py-2 px-4 bg-white border-b-2 border-light-gold md:px-20 z-40">
       <div>
         <Link href="/" className="flex items-center">
           <Image

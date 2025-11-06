@@ -75,11 +75,11 @@ const ResultsContainer = ({ formData, results, setResults }) => {
               <Image src={readingOwl} alt="Owl mascot reading" className="" />
               <div className="absolute h-40 w-40 top-1/2 left-1/2 -translate-1/2 border-6 border-primary rounded-full ring-40 ring-white" />
             </div>
-            <p>
+            <p className="text-center">
               We're searching for {results.length > 0 ? "more" : "the"} perfect
               books.
             </p>
-            <p>This may take up to a minute...</p>
+            <p className="text-center">This may take up to a minute...</p>
           </div>
         </>
       ) : null}

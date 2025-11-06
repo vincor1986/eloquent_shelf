@@ -55,7 +55,7 @@ const SummaryPage = async ({ params }) => {
     : categorySummaries.filter((i) => i.slug !== slug && i.cover_image);
 
   return (
-    <section className="p-6 pt-8">
+    <section className="lg:p-6 pt-8">
       <Breadcrumbs items={bcItems} />
       <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
       <div className="flex gap-2">

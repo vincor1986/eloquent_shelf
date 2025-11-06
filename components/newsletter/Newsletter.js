@@ -7,15 +7,15 @@ import NewsletterForm from "./NewsletterForm";
 
 const Newsletter = () => {
   return (
-    <section className="pt-8 w-full" id="newsletter">
+    <section className="pt-8 mb-16 w-full" id="newsletter">
       <SectionTitle title="Sign up for our Newsletter" />
       <div className="flex flex-col md:flex-row items-center justify-center">
         <div className="relative flex items-center justify-center w-full md:w-1/3">
-          <span className="absolute top-1/2 left-1/2 -translate-1/2 bg-light-forest h-40 w-40 rounded-full opacity-30 animate-blob animation-delay-2000 -z-10"></span>
+          <span className="absolute top-1/2 left-1/2 -translate-1/2 bg-light-forest h-40 w-40 rounded-full opacity-30 animate-blob animation-delay-2000"></span>
           <Image
             src={newsletterOwl}
             alt="Eloquent Shelf Owl delivering a letter via its talons"
-            className=""
+            className="relative z-10"
             width={400}
           />
         </div>
