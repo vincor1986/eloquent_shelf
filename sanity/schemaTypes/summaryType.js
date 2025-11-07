@@ -57,6 +57,22 @@ export const summaryType = defineType({
       ],
     }),
     defineField({
+      name: "isbn_10",
+      type: "string",
+    }),
+    defineField({
+      name: "isbn_13",
+      type: "string",
+    }),
+    defineField({
+      name: "BS_UK_isbn_13",
+      type: "string",
+    }),
+    defineField({
+      name: "BS_US_isbn_13",
+      type: "string",
+    }),
+    defineField({
       name: "description",
       type: "text",
     }),
@@ -102,14 +118,6 @@ export const summaryType = defineType({
     defineField({
       name: "read_time_minutes",
       type: "number",
-    }),
-    defineField({
-      name: "isbn_10",
-      type: "string",
-    }),
-    defineField({
-      name: "isbn_13",
-      type: "string",
     }),
     defineField({
       name: "tags",

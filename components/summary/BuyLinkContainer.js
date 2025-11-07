@@ -1,14 +1,17 @@
 import VendorButton from "./VendorButton";
 
-const BuyLinkContainer = ({ buy_links }) => {
-  const vendors = Object.keys(buy_links);
-  const activeVendors = vendors.filter((vendor) => buy_links[vendor]);
-  const isbn = buy_links.bookshop.split("/").pop();
+const VENDORS = ["bookshop"];
 
+const BuyLinkContainer = ({ BS_UK_isbn_13, BS_US_isbn_13 }) => {
   return (
     <div className="flex gap-3 items-center">
-      {activeVendors.map((vendor) => (
-        <VendorButton key={vendor} vendor={vendor} isbn={isbn} />
+      {VENDORS.map((vendor) => (
+        <VendorButton
+          key={vendor}
+          vendor={vendor}
+          uk_isbn={BS_UK_isbn_13}
+          us_isbn={BS_US_isbn_13}
+        />
       ))}
     </div>
   );

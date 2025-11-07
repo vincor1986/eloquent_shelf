@@ -7,12 +7,12 @@ import getVendorURL from "@/lib/helpers/vendorURL";
 import bookshopLogo from "@/public/images/logos/vendors/bookshop.png";
 import { getUserRegion } from "@/actions/general";
 
-const VendorButton = async ({ vendor, isbn }) => {
+const VendorButton = async ({ vendor, uk_isbn, us_isbn }) => {
   const logo = vendor === "bookshop" ? bookshopLogo : null;
   const name = vendor === "bookshop" ? "Bookshop.org" : vendor;
 
   const region = await getUserRegion();
-  const url = getVendorURL(vendor, isbn, region);
+  const url = getVendorURL(vendor, region === "GB" ? uk_isbn : us_isbn, region);
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">

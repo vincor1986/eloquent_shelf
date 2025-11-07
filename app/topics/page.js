@@ -49,9 +49,17 @@ const TopicSelectPage = async () => {
       />
       <div className="lg:p-4">
         <div className="flex w-full max-w-[500px] mx-auto flex-wrap gap-2 justify-center">
-          {activeLetters.map((letter) => (
+          {alphabetArr.map((letter) => (
             <Link href={`/topics/#${letter}`} key={letter}>
-              <div className="border border-zinc-200 rounded-md flex items-center justify-center cursor-pointer px-3 py-1 hover:bg-zinc-200 transition text-secondary">
+              <div
+                className="border border-zinc-200 rounded-md flex items-center justify-center cursor-pointer px-3 py-1 hover:bg-zinc-200 transition text-secondary"
+                style={{
+                  opacity: activeLetters.includes(letter) ? 1 : 0.3,
+                  pointerEvents: activeLetters.includes(letter)
+                    ? "auto"
+                    : "none",
+                }}
+              >
                 <p>{letter}</p>
               </div>
             </Link>

@@ -6,22 +6,22 @@ import xLogo from "@/public/images/logos/social/x.svg";
 const social = [
   {
     name: "Bluesky",
-    url: "https://bsky.app/",
+    url: "https://eloquentshelf.bsky.social",
     image: blueSkyLogo,
   },
   {
     name: "Facebook",
-    url: "https://facebook.com/",
+    url: "https://www.facebook.com/profile.php?id=61583396343613",
     image: facebookLogo,
   },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/",
-    image: instagramLogo,
-  },
+  // {
+  //   name: "Instagram",
+  //   url: "https://www.instagram.com/eloquent_shelf/",
+  //   image: instagramLogo,
+  // },
   {
     name: "X",
-    url: "https://x.com/",
+    url: "https://x.com/eloquent_shelf",
     image: xLogo,
   },
 ];
