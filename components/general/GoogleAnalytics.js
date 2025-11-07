@@ -8,13 +8,6 @@ import { useEffect } from "react";
 const GoogleAnalytics = ({ consent }) => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-  if (
-    !consent ||
-    process.env.NEXT_PUBLIC_NODE_ENV !== "production" ||
-    !GA_MEASUREMENT_ID
-  )
-    return null;
-
   useEffect(() => {
     if (consent) {
       window.gtag?.("consent", "update", {
@@ -28,6 +21,13 @@ const GoogleAnalytics = ({ consent }) => {
   }, [consent]);
 
   usePageView();
+
+  if (
+    !consent ||
+    process.env.NEXT_PUBLIC_NODE_ENV !== "production" ||
+    !GA_MEASUREMENT_ID
+  )
+    return null;
 
   return (
     <>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { LoaderCircle, MailCheck } from "lucide-react";
 import { useReCaptcha } from "next-recaptcha-v3";
@@ -22,8 +22,10 @@ const DEFAULT_FORM_DATA = {
   subject: "",
 };
 
+const formatMessage = (slug) =>
+  `I'd like to flag an inaccuracy with the book with slug: "${slug}" - please see my comments below: \n\n`;
+
 const ContactFormPage = () => {
-  const [formData, setFormData] = useState(DEFAULT_FORM_DATA);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -32,15 +34,14 @@ const ContactFormPage = () => {
   const slug = urlParams.get("slug");
   const subject = urlParams.get("subject");
 
+  const [formData, setFormData] = useState({
+    ...DEFAULT_FORM_DATA,
+    subject: subject === "inaccuracy" ? subject : "",
+    message: subject === "inaccuracy" ? formatMessage(slug) : "",
+  });
+
   const region = useRegionCtx();
   const { executeRecaptcha } = useReCaptcha();
-
-  useEffect(() => {
-    if (slug && subject === "inaccuracy") {
-      const message = `I'd like to flag an inaccuracy with the book with slug: "${slug}" - please see my comments below: \n\n`;
-      setFormData((prev) => ({ ...prev, subject, message }));
-    }
-  }, []);
 
   const setErrorMessage = (msg) => {
     setError(msg);
@@ -215,8 +216,8 @@ const ContactFormPage = () => {
             />
             <h2 className="text-2xl">Message sent successfully!</h2>
             <p className="text-center italic">
-              Thanks so much for taking the time to get in touch. We'll get back
-              to you soon!
+              Thanks so much for taking the time to get in touch. We&apos;ll get
+              back to you soon!
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, setUseState } from "react";
+import { useState } from "react";
 import { Star } from "lucide-react";
 import ModalBackdrop from "../ui/ModalBackdrop";
 

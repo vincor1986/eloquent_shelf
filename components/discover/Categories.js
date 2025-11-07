@@ -6,7 +6,7 @@ import Tickbox from "./Tickbox";
 
 const CAT_LIST = ["Classics", "Modern", "Lesser Known", "Must Reads"];
 
-const Categories = ({ formData, setFormData, setFormIndex }) => {
+const Categories = ({ formData, setFormData, setFormIndex, resetResults }) => {
   const [selectedCategories, setSelectedCategories] = useState(
     formData.categories || []
   );
@@ -25,6 +25,7 @@ const Categories = ({ formData, setFormData, setFormIndex }) => {
 
   const handleContinue = () => {
     setFormData({ ...formData, categories: selectedCategories });
+    resetResults();
     setFormIndex(5);
   };
 

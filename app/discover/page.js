@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Telescope } from "lucide-react";
 
 import DiscoverForm from "@/components/discover/DiscoverForm";
@@ -14,10 +14,6 @@ import Image from "next/image";
 const DiscoverPage = () => {
   const [formData, setFormData] = useState(defaultDiscoverData);
   const [results, setResults] = useState([]);
-
-  useEffect(() => {
-    setResults([]);
-  }, [formData]);
 
   return (
     <section className="lg:px-4">

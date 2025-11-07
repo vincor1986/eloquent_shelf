@@ -45,8 +45,10 @@ const DiscoverForm = ({ formData, setFormData, results, setResults }) => {
       formData={formData}
       setFormData={setFormData}
       setFormIndex={setFormIndex}
+      resetResults={() => setResults([])}
     />,
     <ResultsContainer
+      key="results-container"
       formData={formData}
       results={results}
       setResults={setResults}

@@ -6,7 +6,7 @@ const ModalBackdrop = ({ closeModal }) => {
   return createPortal(
     <div
       className="fixed inset-0 w-full h-full z-0 cursor-pointer"
-      onClick={(e) => closeModal()}
+      onClick={closeModal}
     />,
     document.body
   );

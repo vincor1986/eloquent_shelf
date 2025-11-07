@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
 
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import HorizontalListView from "@/components/list-view/HorizontalListView";
-import { fetchSummariesByCategory } from "@/actions/cms";
 import ListGrid from "@/components/list-view/ListGrid";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CategoryImage from "@/components/list-view/CategoryImage";
-import { description } from "@/local_ops/db/example-book";
+
+import { fetchSummariesByCategory } from "@/actions/cms";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 

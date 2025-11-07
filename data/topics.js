@@ -6,7 +6,6 @@ import ai from "@/public/images/icons/ai.png";
 import selfhelp from "@/public/images/icons/selfhelp.png";
 import commentary from "@/public/images/icons/commentary.png";
 import economics from "@/public/images/icons/economics.png";
-import { slug } from "@/local_ops/db/example-book";
 
 const topics = [
   {

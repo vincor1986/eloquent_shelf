@@ -13,8 +13,7 @@ const Home = async () => {
     12
   );
 
-  const { error: featuredError, data: featuredSummary } =
-    await fetchHomepageFeatured();
+  const { data: featuredSummary } = await fetchHomepageFeatured();
 
   const summaryData = summaries.filter((item) => item.cover_image);
 

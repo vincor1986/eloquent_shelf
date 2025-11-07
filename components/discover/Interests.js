@@ -9,9 +9,9 @@ const Interests = ({ formData, setFormData, setFormIndex }) => {
   const [interestArr, setInterestArr] = useState(formData.forInterests || [""]);
 
   const handleEditInterest = (value, index) => {
-    const updatedArr = interestArr;
+    const updatedArr = [...interestArr];
     updatedArr[index] = value;
-    setInterestArr([...updatedArr]);
+    setInterestArr(updatedArr);
   };
 
   const addNewInterest = () => setInterestArr((prev) => [...prev, ""]);

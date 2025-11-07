@@ -9,6 +9,7 @@ import descriptions from "@/data/cookiesText";
 import Tickbox from "@/components/discover/Tickbox";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Cookie } from "lucide-react";
+import TextLink from "@/components/ui/TextLink";
 
 const DEFAULT_PREFS = {
   analytics: false,
@@ -46,7 +47,11 @@ const ManageCookies = () => {
             title="Manage Cookie Preferences"
             desc="Use the below tick-list to customize your cookie preferences."
           />
-
+          <p className="text-primary mb-8">
+            If you'd like more information about how we use cookies, please
+            visit our{" "}
+            <TextLink href="/legal/cookie-policy">Cookie Policy</TextLink>.
+          </p>
           {["analytics", "functional", "marketing"].map((cat) => (
             <div key={cat} className="p-4">
               <label className="flex text-primary items-center gap-2 mb-2">

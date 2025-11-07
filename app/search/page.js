@@ -25,7 +25,7 @@ const SearchPage = ({}) => {
   const [ratingCounts, setRatingCounts] = useState({});
 
   const handleSearch = async () => {
-    const { error, data: summaries } = await fetchSummariesBySearchTerm(query);
+    const { data: summaries } = await fetchSummariesBySearchTerm(query);
     setResults(summaries);
     setSortMode("relevance");
 
@@ -68,7 +68,7 @@ const SearchPage = ({}) => {
   useEffect(() => {
     let timer = null;
     if (query) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         handleSearch(query);
       }, 1000);
     }

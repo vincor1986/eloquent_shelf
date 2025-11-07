@@ -43,7 +43,7 @@ const AboutPage = () => {
         </p>
         <p>
           We believe that books have the power to connect people, spark
-          creativity, and inspire change. Whether you're searching for a new
+          creativity, and inspire change. Whether you&pos;re searching for a new
           favorite read or looking to engage in meaningful discussions, Eloquent
           Shelf is here to facilitate those connections.
         </p>
@@ -62,8 +62,8 @@ const AboutPage = () => {
         </p>
         <br />
         <p className="text-center">
-          If you'd like to get in touch with us about anything at all - please
-          don't hesitate to do so by completing{" "}
+          If you&apos;d like to get in touch with us about anything at all -
+          please don&apos;t hesitate to do so by completing{" "}
           <TextLink href="/contact">this form</TextLink>.
         </p>
       </div>

@@ -16,7 +16,7 @@ const SortButton = ({ sortFunction, sortMode, name }) => {
       break;
     case "Rating Asc":
       title = "Sort by Rating Ascending";
-      Icon = () => (
+      Icon = (
         <>
           <MoveUp className="w-5 -ml-1" />
           <Star
@@ -27,7 +27,7 @@ const SortButton = ({ sortFunction, sortMode, name }) => {
       break;
     case "Rating Desc":
       title = "Sort by Rating Descending";
-      Icon = () => (
+      Icon = (
         <>
           <MoveDown className="w-5 -ml-1" />
           <Star

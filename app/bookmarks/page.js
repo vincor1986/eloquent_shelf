@@ -46,7 +46,7 @@ const BookmarksPage = () => {
           <p>
             Visit our <TextLink href="/topics">topics page</TextLink> for
             inspiration or use our <TextLink href="/search">search</TextLink>{" "}
-            feature to find new books you'll love.
+            feature to find new books you&apos;ll love.
           </p>
         </div>
       ) : null}
