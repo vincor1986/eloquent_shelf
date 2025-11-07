@@ -36,29 +36,30 @@ const AboutPage = () => {
       <div className="flex flex-col w-full mt-6 gap-4 text-primary">
         <p>
           <span className="text-2xl">O</span>ur ambition at Eloquent Shelf is to
-          create a space where every featured book is a conversation starter. A
-          book can change the way we think and feel about the world around us -
-          and we aim to collate those such books in one place to make
-          discovering and adoring them easier.
+          create a haven for introspective readers who believe that what we read
+          shapes who we become. A book can change the way we think and feel
+          about the world around us - and we aim to collate such non-fiction for
+          the curious and reflective mind.
         </p>
         <p>
-          We believe that books have the power to connect people, spark
-          creativity, and inspire change. Whether you&pos;re searching for a new
-          favorite read or looking to engage in meaningful discussions, Eloquent
-          Shelf is here to facilitate those connections.
+          Books have the power to spark creativity and inspire growth. Whether
+          you&apos;re searching for a new favourite read or just want to broaden
+          your horizons, Eloquent Shelf is here to facilitate that journey.
         </p>
         <p>
-          Our <TextLink href="/topics">curated lists</TextLink> are separated
-          into categories and topics to provide a recommended reading path to
-          establish an overview of a subject. Our{" "}
-          <TextLink href="/discover">AI recommendation tool</TextLink> takes in
-          details and interests then searches the world of non-fiction to find
-          the perfect book for you or a loved one. We hope to enhance the joy of
-          learning about the world through books and reading.
+          Our <TextLink href="/topics">curated lists</TextLink> are categorised
+          by topic and subject to provide a recommended reading path to develop
+          a solid overview of a given field. Our{" "}
+          <TextLink href="/discover">AI recommendation tool</TextLink> asks you
+          for your preferences, and then searches the world of non-fiction to
+          find the perfect book for you or a loved one. These features are
+          designed to help you navigate the vast landscape of non-fiction
+          literature with ease and confidence, and to ensure that you always
+          find books that resonate with your interests and aspirations.
         </p>
         <p>
-          So come with us on this journey, and discover the power of non-fiction
-          to transform lives, minds and the future.
+          Journey with us, and discover the power of non-fiction to transform
+          lives, minds and the future.
         </p>
         <br />
         <p className="text-center">
