@@ -7,6 +7,8 @@ import Footer from "@/components/footer/Footer";
 
 import RegionProvider from "@/store/RegionContext";
 import CookieBanner from "@/components/general/CookiesModal";
+import GoogleAnalytics from "@/components/general/GoogleAnalytics";
+import { getCookieConsent } from "@/actions/cookies";
 
 const copse = Copse({
   variable: "--font-copse",
@@ -21,7 +23,9 @@ export const metadata = {
     "Curated non-fiction for curious minds - a place to discover books and ideas that matter.",
 };
 
-const RootLayout = ({ children }) => {
+const RootLayout = async ({ children }) => {
+  const consent = await getCookieConsent();
+
   return (
     <html lang="en">
       <body
@@ -35,6 +39,7 @@ const RootLayout = ({ children }) => {
           <Footer />
           <CookieBanner />
         </RegionProvider>
+        <GoogleAnalytics consent={consent?.analytics} />
       </body>
     </html>
   );
