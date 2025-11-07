@@ -36,36 +36,39 @@ const AboutPage = () => {
       <div className="flex flex-col w-full mt-6 gap-4 text-primary">
         <p>
           <span className="text-2xl">O</span>ur ambition at Eloquent Shelf is to
-          create a haven for introspective readers who believe that what we read
-          shapes who we become. A book can change the way we think and feel
-          about the world around us - and we aim to collate such non-fiction for
-          the curious and reflective mind.
+          create a haven for thoughtful readers — for those who believe that
+          what we read shapes who we become.
         </p>
         <p>
-          Books have the power to spark creativity and inspire growth. Whether
-          you&apos;re searching for a new favourite read or just want to broaden
-          your horizons, Eloquent Shelf is here to facilitate that journey.
+          Books have the power to change how we see, think, and feel about the
+          world, and our purpose is to curate those that do.
         </p>
         <p>
-          Our <TextLink href="/topics">curated lists</TextLink> are categorised
-          by topic and subject to provide a recommended reading path to develop
-          a solid overview of a given field. Our{" "}
-          <TextLink href="/discover">AI recommendation tool</TextLink> asks you
-          for your preferences, and then searches the world of non-fiction to
-          find the perfect book for you or a loved one. These features are
-          designed to help you navigate the vast landscape of non-fiction
-          literature with ease and confidence, and to ensure that you always
-          find books that resonate with your interests and aspirations.
+          Whether you&apos;re seeking a new favourite read or simply wish to
+          broaden your horizons, Eloquent Shelf helps you explore the finest
+          works of insight and imagination.
         </p>
         <p>
-          Journey with us, and discover the power of non-fiction to transform
-          lives, minds and the future.
+          Our <TextLink href="/topics">curated collections</TextLink> are
+          arranged by theme to guide your learning journey — offering a clear
+          path to understanding each field more deeply. Our{" "}
+          <TextLink href="/discover">AI recommendation tool</TextLink> invites
+          you to share your interests and then searches the literary world to
+          find titles that align with your curiosity and aspirations.
+        </p>
+        <p>
+          Every feature is designed to help you navigate the vast landscape of
+          non-fiction with confidence — so that you can spend less time
+          searching, and more time discovering.
+        </p>
+        <p>
+          Journey with us, and rediscover the quiet power of books to transform
+          lives, minds, and the future.
         </p>
         <br />
         <p className="text-center">
-          If you&apos;d like to get in touch with us about anything at all -
-          please don&apos;t hesitate to do so by completing{" "}
-          <TextLink href="/contact">this form</TextLink>.
+          If you&apos;d like to reach out, we&apos;d love to hear from you —
+          simply fill out our <TextLink href="/contact">contact form</TextLink>.
         </p>
       </div>
     </section>
