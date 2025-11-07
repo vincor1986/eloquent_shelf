@@ -67,11 +67,13 @@ const SearchPage = ({}) => {
 
   useEffect(() => {
     let timer = null;
+
     if (query) {
       timer = setTimeout(() => {
         handleSearch(query);
       }, 1000);
     }
+
     return () => clearTimeout(timer);
   }, [query]);
 
