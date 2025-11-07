@@ -6,7 +6,7 @@ const PanelCard = ({ title, value, Icon }) => {
       </div>
       <div className="text-center md:text-left">
         <h3 className="text-zinc-700 text-xs">{title}</h3>
-        <p className="text-primary">{value}</p>
+        <p className="text-primary text-xs lg:text-lg">{value}</p>
       </div>
     </div>
   );

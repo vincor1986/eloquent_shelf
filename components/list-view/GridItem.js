@@ -30,7 +30,7 @@ const GridItem = ({
           />
         </div>
       </Link>
-      <div className="relative flex flex-col ml-4 flex-2">
+      <div className="relative flex flex-col ml-4 flex-2 pb-10">
         <Link href={`/summary/${slug}`}>
           <h2 className="text-lg">{title}</h2>
           <h3 className="text-secondary text-sm line-clamp-3 text-ellipsis">

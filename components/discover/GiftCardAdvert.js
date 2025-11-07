@@ -13,9 +13,9 @@ const GiftCardAdvert = () => {
         <Image
           src={giftCardImage}
           alt="Bookshop.org Gift Card"
-          className="h-[200px] lg:h-[200px] w-auto rounded-sm mx-auto"
+          className="w-full lg:h-[200px] lg:w-auto rounded-sm mx-auto"
         />
-        <div className="p-4 text-primary">
+        <div className="lg:p-4 text-primary">
           <h3 className="text-xl font-medium">
             Gift Cards | The Gift of Reading
           </h3>

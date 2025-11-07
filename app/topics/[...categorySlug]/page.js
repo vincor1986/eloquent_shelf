@@ -6,8 +6,24 @@ import { fetchSummariesByCategory } from "@/actions/cms";
 import ListGrid from "@/components/list-view/ListGrid";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CategoryImage from "@/components/list-view/CategoryImage";
+import { description } from "@/local_ops/db/example-book";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
+
+export const generateMetadata = async ({ params }) => {
+  const { categorySlug } = await params;
+
+  const { data, catName } = await fetchSummariesByCategory(categorySlug);
+
+  if (!catName || data.length === 0) {
+    return { title: "Eloquent Shelf | Category Not Found" };
+  }
+
+  return {
+    title: `Eloquent Shelf | ${data.length} book${data.length > 1 ? "s" : ""} about ${catName}`,
+    description: `Explore ${data.length} curated non-fiction book summaries and recommendations about ${catName} on Eloquent Shelf.`,
+  };
+};
 
 const CategoryPage = async ({ params }) => {
   const { categorySlug } = await params;
@@ -33,7 +49,7 @@ const CategoryPage = async ({ params }) => {
       <CategoryImage categorySlug={categorySlug.toString()} />
       <SectionTitle
         title={`Non-fiction in ${catName}`}
-        desc={`${summaries.length} wonderful books about ${catName}.`}
+        desc={`${summaries.length} wonderful book${summaries.length > 1 ? "s" : ""} about ${catName}.`}
       />
       <ListGrid itemsArr={summaries} />
     </section>

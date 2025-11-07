@@ -17,7 +17,8 @@ const copse = Copse({
 
 export const metadata = {
   title: "Eloquent Shelf",
-  description: "Curated Non-Fiction for Curious Minds.",
+  description:
+    "Curated non-fiction for curious minds - a place to discover books and ideas that matter.",
 };
 
 const RootLayout = ({ children }) => {
@@ -28,7 +29,7 @@ const RootLayout = ({ children }) => {
       >
         <RegionProvider>
           <Header />
-          <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto bg-white">
+          <main className="relative px-4 py-8 max-w-[1200px] min-h-[calc(100vh-56px-147px)] mx-auto bg-white text-black">
             {children}
           </main>
           <Footer />

@@ -20,7 +20,7 @@ const Featured = ({
   return (
     <div className="col-span-1 row-span-3 rounded-sm p-2 text-primary">
       <div className="flex w-full items-center">
-        <h2 className="text-xl">Weekly Pulse</h2>
+        <h2 className="text-xl">Featured this week</h2>
       </div>
       <div className="h-1 w-full bg-light-gold/50 mb-2 rounded-md" />
       <div className="flex mt-4 items-start">
@@ -29,7 +29,7 @@ const Featured = ({
             src={imageURL(cover_image.asset._ref)}
             width={150}
             height={200}
-            className="max-w-[150px] lg:max-w-[250px] h-auto m-2"
+            className="max-w-[100px] lg:max-w-[200px] h-auto m-2"
             alt={`cover image for ${title}`}
           />
         </Link>

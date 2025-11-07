@@ -21,6 +21,14 @@ const TopicItem = ({ catName, count }) => {
   );
 };
 
+export const metadata = {
+  title: "Eloquent Shelf | Topics",
+  description:
+    "Explore our curated non-fiction books by category and topic at Eloquent Shelf.",
+};
+
+export const revalidate = 3600; // Revalidate every hour
+
 const TopicSelectPage = async () => {
   const { success, data } = await fetchAllCategories();
 
@@ -39,7 +47,7 @@ const TopicSelectPage = async () => {
         title="Browse by Category"
         desc="Explore our curated non-fiction books by category"
       />
-      <div className="p-4">
+      <div className="lg:p-4">
         <div className="flex w-full max-w-[500px] mx-auto flex-wrap gap-2 justify-center">
           {activeLetters.map((letter) => (
             <Link href={`/topics/#${letter}`} key={letter}>

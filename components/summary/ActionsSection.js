@@ -10,7 +10,7 @@ const ActionsSection = ({ slug, id }) => {
   const isBookmarked = bookmarks.includes(id);
 
   return (
-    <div className="absolute top-4 right-4 flex gap-2 text-primary">
+    <div className="absolute top-10 right-4 flex gap-2 text-primary">
       <Bookmark
         className={`w-5 h-5 cursor-pointer ${isBookmarked ? "fill-forest" : ""}`}
         title="Add to Bookmarks"

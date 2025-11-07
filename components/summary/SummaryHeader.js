@@ -11,10 +11,12 @@ const SummaryHeader = ({
   return (
     <div className="flex flex-col w-full">
       <div className="mb-2">
-        <h2 className="inline text-2xl text-primary mb-2">{title}</h2>
-        {subtitle ? <h2 className="inline text-2xl font-bold">:</h2> : null}
+        <h2 className="inline wrap-anywhere text-2xl text-primary mb-2">
+          {title}
+          {subtitle ? ":" : null}
+        </h2>
         {subtitle && (
-          <h3 className="ml-2 inline text-2xl text-secondary mb-4">
+          <h3 className="ml-2 wrap-anywhere inline text-2xl text-secondary mb-4">
             {subtitle}
           </h3>
         )}

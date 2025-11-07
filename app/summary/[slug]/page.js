@@ -23,6 +23,21 @@ import {
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
+export const generateMetadata = async ({ params }) => {
+  const { slug } = await params;
+
+  const { data: mainSummary } = await fetchSummaryWithSlug(slug);
+
+  if (!mainSummary) {
+    return { title: "Eloquent Shelf | Summary Not Found" };
+  }
+
+  return {
+    title: `Eloquent Shelf | ${mainSummary.title}`,
+    description: mainSummary.description,
+  };
+};
+
 const SummaryPage = async ({ params }) => {
   const { slug } = await params;
 
@@ -59,14 +74,14 @@ const SummaryPage = async ({ params }) => {
       <Breadcrumbs items={bcItems} />
       <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
       <div className="flex gap-2">
-        <div className="flex flex-col items-center justify-center mb-16">
+        <div className="flex flex-col items-center justify-center mb-16 max-w-1/3">
           <Image
             src={imageURL(mainSummary.cover_image.asset._ref)}
             alt={mainSummary.title}
             priority
             width={200}
             height={800}
-            className="w-[120px] h-auto lg:w-[200px] rounded-xs shadow-md"
+            className="w-[120px] max-w-full h-auto lg:w-[200px] rounded-xs shadow-md"
           />
           <div className="mt-4">
             <Rating
@@ -75,7 +90,7 @@ const SummaryPage = async ({ params }) => {
             />
           </div>
         </div>
-        <div className="ml-8 lg:ml-16 w-full">
+        <div className="ml-2 md:ml-8 lg:ml-16 w-full">
           <SummaryHeader {...mainSummary} />
           <div className="hidden mt-8 lg:block">
             <SummaryPanel {...mainSummary} />
