@@ -48,13 +48,12 @@ export const summaryType = defineType({
       type: "number",
     }),
     defineField({
-      name: "buy_links",
-      type: "object",
-      fields: [
-        { name: "amazon", type: "url" },
-        { name: "bookshop", type: "url" },
-        { name: "indie", type: "url" },
-      ],
+      name: "amazon_UK_link",
+      type: "url",
+    }),
+    defineField({
+      name: "amazon_US_link",
+      type: "url",
     }),
     defineField({
       name: "isbn_10",
