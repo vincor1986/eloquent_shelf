@@ -35,6 +35,16 @@ export const generateMetadata = async ({ params }) => {
   return {
     title: `Eloquent Shelf | ${mainSummary.title}`,
     description: mainSummary.description,
+    openGraph: {
+      images: [
+        {
+          url: `summary/${slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${mainSummary.title} OG Image`,
+        },
+      ],
+    },
   };
 };
 
