@@ -58,13 +58,13 @@ const topics = [
     slug: "history",
   },
   {
-    topic: "Economics",
+    topic: "Finance",
     description:
-      "Join the exploration of economic theories and their real-world applications.",
+      "Join the exploration of financial theories, mindsets and real-world applications.",
     bg: "bg-dark-forest",
     image: economics,
     invert: true,
-    slug: "economics",
+    slug: "finance",
   },
   {
     topic: "Big Ideas",
