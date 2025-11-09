@@ -21,6 +21,16 @@ export const metadata = {
   title: "Eloquent Shelf",
   description:
     "Curated non-fiction for curious minds - a place to discover books and ideas that matter.",
+  openGraph: {
+    images: [
+      {
+        url: `/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Eloquent Shelf OG Image",
+      },
+    ],
+  },
 };
 
 const RootLayout = async ({ children }) => {
