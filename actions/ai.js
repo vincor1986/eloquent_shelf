@@ -13,13 +13,8 @@ export const fetchBookRecommendations = async (formData, existing) => {
   const prompt = generatePrompt(formData, existing);
 
   try {
-    console.time("GPT Books");
     const response = await gptRequest(prompt);
     const { books } = response;
-
-    console.timeEnd("GPT Books");
-
-    console.time("GPT Blurbs");
 
     const blurbPromises = books.map((book) => {
       const blurbPrompt = generateBlurbPrompt(
@@ -33,10 +28,6 @@ export const fetchBookRecommendations = async (formData, existing) => {
     });
 
     const blurbs = await Promise.all(blurbPromises);
-
-    console.timeEnd("GPT Blurbs");
-
-    console.time("Fetch Extra Data");
 
     for (let index = 0; index < books.length; index++) {
       const title = books[index].title;
@@ -64,8 +55,6 @@ export const fetchBookRecommendations = async (formData, existing) => {
         ),
       };
     }
-
-    console.timeEnd("Fetch Extra Data");
 
     return {
       success: true,
