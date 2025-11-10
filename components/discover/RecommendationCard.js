@@ -3,6 +3,7 @@ import Image from "next/image";
 import Rating from "../general/Rating";
 import SummaryPanel from "../summary/SummaryPanel";
 import BookshopLink from "../general/BookshopLink";
+import AmazonLink from "../general/AmazonLink";
 
 const RecommendationCard = ({
   title,
@@ -46,7 +47,9 @@ const RecommendationCard = ({
         read_time_minutes={read_time_minutes}
       />
       <div className="flex w-full gap-2 items-center justify-end">
-        <BookshopLink isbn={isbn}>via Bookshop.org</BookshopLink>
+        <AmazonLink title={title} author={author}>
+          via Amazon
+        </AmazonLink>
       </div>
     </div>
   );

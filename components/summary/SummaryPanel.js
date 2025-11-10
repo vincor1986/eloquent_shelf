@@ -16,7 +16,11 @@ const SummaryPanel = ({
       <PanelCard title="PAGES" value={page_count} Icon={BookOpenCheck} />
       <PanelCard
         title="READ TIME"
-        value={"≈ " + read_time_minutes + " mins"}
+        value={
+          read_time_minutes === "Unknown"
+            ? "Unknown"
+            : "≈ " + read_time_minutes + " mins"
+        }
         Icon={Clock}
       />
     </div>

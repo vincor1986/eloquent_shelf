@@ -28,7 +28,7 @@ const ResultsContainer = ({ formData, results, setResults }) => {
   };
 
   useEffect(() => {
-    fetchRecommendations();
+    results.length === 0 && fetchRecommendations();
   }, []);
 
   const generateMore = () => {

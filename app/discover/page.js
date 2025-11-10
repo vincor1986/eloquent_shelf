@@ -14,6 +14,7 @@ import Image from "next/image";
 const DiscoverPage = () => {
   const [formData, setFormData] = useState(defaultDiscoverData);
   const [results, setResults] = useState([]);
+  const [start, setStart] = useState(false);
 
   return (
     <section className="lg:px-4">
@@ -31,12 +32,28 @@ const DiscoverPage = () => {
         title="Discover the Perfect Non-Fiction Read"
         desc="Use our AI-driven recommendations to find your next favourite book - or the perfect thoughtful gift for someone you care about."
       />
-      <DiscoverForm
-        formData={formData}
-        setFormData={setFormData}
-        results={results}
-        setResults={setResults}
-      />
+      {!start ? (
+        <div className="mt-12 w-full flex items-center justify-center flex-col p-4">
+          <h2 className="text-xl text-primary">
+            Answer 5 questions to find the perfect book for yourself or someone
+            else.
+          </h2>
+          <button
+            className="mt-6 px-6 py-2 bg-primary text-white rounded-md hover:bg-secondary transition-colors duration-300 cursor-pointer"
+            onClick={() => setStart(true)}
+          >
+            Get Started
+          </button>
+        </div>
+      ) : null}
+      {start ? (
+        <DiscoverForm
+          formData={formData}
+          setFormData={setFormData}
+          results={results}
+          setResults={setResults}
+        />
+      ) : null}
     </section>
   );
 };
