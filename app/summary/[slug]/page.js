@@ -84,7 +84,7 @@ const SummaryPage = async ({ params }) => {
   return (
     <>
       <ProductJsonLd
-        productName={mainSummary.title}
+        name={mainSummary.title}
         description={mainSummary.description}
         brand={formatStringList(mainSummary.author)}
         images={imageURL(mainSummary.cover_image.asset._ref)}
@@ -99,6 +99,7 @@ const SummaryPage = async ({ params }) => {
           bestRating: 5,
           worstRating: 1,
         }}
+        name={mainSummary.title}
         datePublished={mainSummary.published_at}
         itemReviewed={{
           author: {
