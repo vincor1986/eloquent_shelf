@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ProductJsonLd, ReviewJsonLd } from "next-seo";
 
 import { Zap, Lightbulb } from "lucide-react";
 
@@ -15,6 +16,8 @@ import SummaryTagList from "@/components/summary/SummaryTagList";
 import ActionsSection from "@/components/summary/ActionsSection";
 
 import imageURL from "@/lib/cms/imageURL";
+import formatStringList from "@/lib/helpers/formatStringList";
+
 import {
   fetchSummariesByAuthor,
   fetchSummariesByCategory,
@@ -79,72 +82,92 @@ const SummaryPage = async ({ params }) => {
     : categorySummaries.filter((i) => i.slug !== slug && i.cover_image);
 
   return (
-    <section className="lg:p-6 pt-8">
-      <Breadcrumbs items={bcItems} />
-      <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
-      <div className="flex gap-2">
-        <div className="flex flex-col items-center justify-center mb-16 max-w-1/3">
-          <Image
-            src={imageURL(mainSummary.cover_image.asset._ref)}
-            alt={mainSummary.title}
-            priority
-            width={200}
-            height={800}
-            className="w-[120px] max-w-full h-auto lg:w-[200px] rounded-xs shadow-md"
-          />
-          <div className="mt-4">
-            <Rating
-              starRating={mainSummary.rating}
-              count={mainSummary.ratings_count}
-            />
-          </div>
-        </div>
-        <div className="ml-2 md:ml-8 lg:ml-16 w-full">
-          <SummaryHeader {...mainSummary} />
-          <div className="hidden mt-8 lg:block">
-            <SummaryPanel {...mainSummary} />
-          </div>
-          <div className="mt-8">
-            <BuyLinkContainer {...mainSummary} />
-          </div>
-        </div>
-      </div>
-      <div className="mt-2">
-        <SummaryTagList tagsArr={mainSummary.categories} />
-      </div>
-      <div className="mt-8 lg:hidden">
-        <SummaryPanel {...mainSummary} />
-      </div>
-      <div className="-mt-4 lg:-mt-4">
-        <SummaryOverview {...mainSummary} />
-      </div>
-      <div className="p-4 flex flex-col lg:flex-row gap-8">
-        <Outcomes
-          title="What You'll Learn"
-          learning_outcomes={mainSummary.learning_outcomes}
-          Icon={Zap}
-        />
-        <Outcomes
-          title="Key Takeaways"
-          learning_outcomes={mainSummary.key_takeaways}
-          Icon={Lightbulb}
-        />
-      </div>
-      <div className="flex items-center justify-center mt-8">
-        <BuyLinkContainer {...mainSummary} />
-      </div>
-      <HorizontalListView
-        title={
-          useAuthor ? `Other Works by ${authorName}` : `More in ${mainCat}`
-        }
-        items={othersArr}
-        description={
-          useAuthor
-            ? "Explore more works by this author."
-            : "Discover more summaries in this category."
-        }
+    <>
+      <ProductJsonLd
+        productName={mainSummary.title}
+        description={mainSummary.description}
+        brand={formatStringList(mainSummary.author)}
+        images={imageURL(mainSummary.cover_image.asset._ref)}
+        sku={mainSummary.isbn_13}
       />
-    </section>
+      <ReviewJsonLd
+        url={`https://eloquentshelf.com/summary/${slug}`}
+        author="Eloquent Shelf"
+        reviewBody={mainSummary.summary}
+        reviewRating={{
+          ratingValue: mainSummary.rating,
+          bestRating: 5,
+          worstRating: 1,
+        }}
+        datePublished={mainSummary.published_at}
+      />
+      <section className="lg:p-6 pt-8">
+        <Breadcrumbs items={bcItems} />
+        <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
+        <div className="flex gap-2">
+          <div className="flex flex-col items-center justify-center mb-16 max-w-1/3">
+            <Image
+              src={imageURL(mainSummary.cover_image.asset._ref)}
+              alt={mainSummary.title}
+              priority
+              width={200}
+              height={800}
+              className="w-[120px] max-w-full h-auto lg:w-[200px] rounded-xs shadow-md"
+            />
+            <div className="mt-4">
+              <Rating
+                starRating={mainSummary.rating}
+                count={mainSummary.ratings_count}
+              />
+            </div>
+          </div>
+          <div className="ml-2 md:ml-8 lg:ml-16 w-full">
+            <SummaryHeader {...mainSummary} />
+            <div className="hidden mt-8 lg:block">
+              <SummaryPanel {...mainSummary} />
+            </div>
+            <div className="mt-8">
+              <BuyLinkContainer {...mainSummary} />
+            </div>
+          </div>
+        </div>
+        <div className="mt-2">
+          <SummaryTagList tagsArr={mainSummary.categories} />
+        </div>
+        <div className="mt-8 lg:hidden">
+          <SummaryPanel {...mainSummary} />
+        </div>
+        <div className="-mt-4 lg:-mt-4">
+          <SummaryOverview {...mainSummary} />
+        </div>
+        <div className="p-4 flex flex-col lg:flex-row gap-8">
+          <Outcomes
+            title="What You'll Learn"
+            learning_outcomes={mainSummary.learning_outcomes}
+            Icon={Zap}
+          />
+          <Outcomes
+            title="Key Takeaways"
+            learning_outcomes={mainSummary.key_takeaways}
+            Icon={Lightbulb}
+          />
+        </div>
+        <div className="flex items-center justify-center mt-8">
+          <BuyLinkContainer {...mainSummary} />
+        </div>
+        <HorizontalListView
+          title={
+            useAuthor ? `Other Works by ${authorName}` : `More in ${mainCat}`
+          }
+          items={othersArr}
+          description={
+            useAuthor
+              ? "Explore more works by this author."
+              : "Discover more summaries in this category."
+          }
+        />
+      </section>
+    </>
   );
 };
 
