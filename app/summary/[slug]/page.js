@@ -100,6 +100,22 @@ const SummaryPage = async ({ params }) => {
           worstRating: 1,
         }}
         datePublished={mainSummary.published_at}
+        itemReviewed={{
+          author: {
+            name: formatStringList(mainSummary.author),
+            sameAs: mainSummary.amazon_UK_link,
+          },
+          datePublished: mainSummary.published_at,
+          appearance: {
+            url: `https://eloquentshelf.com/summary/${slug}`,
+            headline: mainSummary.title,
+            datePublished: mainSummary.published_at,
+            author: formatStringList(mainSummary.author),
+            publisher: {
+              name: mainSummary.publisher,
+            },
+          },
+        }}
       />
       <section className="lg:p-6 pt-8">
         <Breadcrumbs items={bcItems} />
