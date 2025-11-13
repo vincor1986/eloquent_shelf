@@ -50,6 +50,10 @@ export const generateMetadata = async ({ params }) => {
         },
       ],
     },
+    metadataBase: new URL("https://www.eloquentshelf.com/summary/" + slug),
+    alternates: {
+      canonical: `/summary/${slug}`,
+    },
   };
 };
 

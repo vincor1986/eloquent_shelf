@@ -12,6 +12,10 @@ export const metadata = {
       },
     ],
   },
+  metadataBase: new URL("https://www.eloquentshelf.com/discover"),
+  alternates: {
+    canonical: "/discover",
+  },
 };
 
 const DiscoverLayout = ({ children }) => {

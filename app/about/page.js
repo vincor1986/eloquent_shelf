@@ -9,6 +9,10 @@ export const metadata = {
   title: "Eloquent Shelf | About",
   description:
     "About Eloquent Shelf, our mission, and how we aim to connect curious minds with curated non-fiction books.",
+  metadataBase: new URL("https://www.eloquentshelf.com/about"),
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const AboutPage = () => {

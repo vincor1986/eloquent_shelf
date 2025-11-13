@@ -31,6 +31,10 @@ export const metadata = {
       },
     ],
   },
+  metadataBase: new URL("https://www.eloquentshelf.com"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 const RootLayout = async ({ children }) => {

@@ -25,6 +25,10 @@ export const metadata = {
   title: "Eloquent Shelf | Topics",
   description:
     "Explore our curated non-fiction books by category and topic at Eloquent Shelf.",
+  metadataBase: new URL("https://www.eloquentshelf.com/topics"),
+  alternates: {
+    canonical: "/topics",
+  },
 };
 
 export const revalidate = 3600; // Revalidate every hour

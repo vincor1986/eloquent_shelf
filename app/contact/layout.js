@@ -4,6 +4,10 @@ export const metadata = {
   title: "Eloquent Shelf | Contact",
   description:
     "Get in touch with the Eloquent Shelf team for enquiries, support, or feedback.",
+  metadataBase: new URL("https://www.eloquentshelf.com/contact"),
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const ContactLayoutPage = ({ children }) => {

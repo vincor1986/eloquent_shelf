@@ -2,6 +2,10 @@ export const metadata = {
   title: "Eloquent Shelf | Legal",
   description:
     "Understand the legal terms and conditions of using Eloquent Shelf.",
+  metadataBase: new URL("https://www.eloquentshelf.com/legal"),
+  alternates: {
+    canonical: "/legal",
+  },
 };
 
 const LegalLayout = ({ children }) => {
