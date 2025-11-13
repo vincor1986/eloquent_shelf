@@ -34,7 +34,7 @@ const DiscoverPage = () => {
       />
       {!start ? (
         <div className="mt-12 w-full flex items-center justify-center flex-col p-4">
-          <h2 className="text-xl text-primary">
+          <h2 className="w-full text-xl text-primary text-center">
             Answer 5 questions to find the perfect book for yourself or someone
             else.
           </h2>

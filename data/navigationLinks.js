@@ -1,4 +1,4 @@
-import { BookType, Search, Telescope, Bookmark } from "lucide-react";
+import { BookType, Search, Telescope, Bookmark, Feather } from "lucide-react";
 
 const NavigationLinks = [
   {
@@ -20,6 +20,11 @@ const NavigationLinks = [
     title: "Bookmarks",
     href: "/bookmarks",
     icon: Bookmark,
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+    icon: Feather,
   },
 ];
 
