@@ -40,7 +40,29 @@ export const blogType = defineType({
     }),
     defineField({
       name: "content",
-      type: "portableText",
+      title: "Content",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alt text",
+            },
+            {
+              name: "caption",
+              type: "string",
+              title: "Caption",
+            },
+          ],
+        },
+      ],
       validation: (rule) => rule.required(),
     }),
     defineField({
