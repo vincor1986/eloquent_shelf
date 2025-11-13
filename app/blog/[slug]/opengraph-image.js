@@ -79,6 +79,9 @@ const Image = async ({ params }) => {
               color: "#15475e",
               fontSize: "42px",
               marginTop: "10px",
+              backgroundColor: "white",
+              padding: "10px 15px",
+              borderRadius: "5px",
             }}
           >
             {blogPost.title}: {blogPost.subtitle}
@@ -115,6 +118,7 @@ const Image = async ({ params }) => {
             right: "50px",
             width: "550px",
             borderRadius: "5px",
+            border: "5px solid #15475e",
           }}
         />
       </div>
