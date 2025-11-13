@@ -23,6 +23,8 @@ import {
   fetchSummariesByCategory,
   fetchSummaryWithSlug,
 } from "@/actions/cms";
+import { getUserRegion } from "@/actions/general";
+import getVendorURL from "@/lib/helpers/vendorURL";
 
 const baseBCItems = [{ label: "Topics", href: "/topics" }];
 
@@ -54,6 +56,8 @@ export const generateMetadata = async ({ params }) => {
 const SummaryPage = async ({ params }) => {
   const { slug } = await params;
 
+  const region = await getUserRegion();
+
   const { error, data: mainSummary } = await fetchSummaryWithSlug(slug);
 
   if (error || !mainSummary) {
@@ -81,48 +85,37 @@ const SummaryPage = async ({ params }) => {
     ? authorSummaries.filter((i) => i.slug !== slug && i.cover_image)
     : categorySummaries.filter((i) => i.slug !== slug && i.cover_image);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: `${mainSummary.title}${mainSummary.subtitle ? `: ${mainSummary.subtitle}` : ""}`,
+    author: {
+      "@type": "Person",
+      name: formatStringList(mainSummary.author),
+    },
+    isbn: mainSummary.BS_UK_isbn_13,
+    image: imageURL(mainSummary.cover_image.asset._ref),
+    url: `https://eloquentshelf.com/summary/${mainSummary.slug}`,
+    description: mainSummary.description,
+    sameAs:
+      region === "GB"
+        ? [
+            mainSummary.amazon_UK_url,
+            getVendorURL("bookshop", mainSummary.BS_UK_isbn_13),
+          ]
+        : [
+            mainSummary.amazon_US_url,
+            getVendorURL("bookshop", mainSummary.BS_US_isbn_13),
+          ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: mainSummary.rating,
+      reviewCount: mainSummary.ratings_count,
+    },
+  };
+
   return (
     <>
-      <ProductJsonLd
-        name={mainSummary.title}
-        description={mainSummary.description}
-        brand={formatStringList(mainSummary.author)}
-        images={imageURL(mainSummary.cover_image.asset._ref)}
-        sku={mainSummary.isbn_13}
-      />
-      <ReviewJsonLd
-        url={`https://eloquentshelf.com/summary/${slug}`}
-        author="Eloquent Shelf"
-        reviewBody={mainSummary.summary}
-        reviewRating={{
-          ratingValue: mainSummary.rating,
-          bestRating: 5,
-          worstRating: 0,
-        }}
-        aggregateRating={{
-          ratingValue: mainSummary.rating,
-          reviewCount: mainSummary.ratings_count,
-        }}
-        name={mainSummary.title}
-        datePublished={mainSummary.published_at}
-        itemReviewed={{
-          author: {
-            name: formatStringList(mainSummary.author),
-            sameAs: mainSummary.amazon_UK_link,
-          },
-          name: mainSummary.title,
-          datePublished: mainSummary.published_at,
-          appearance: {
-            url: `https://eloquentshelf.com/summary/${slug}`,
-            headline: mainSummary.title,
-            datePublished: mainSummary.published_at,
-            author: formatStringList(mainSummary.author),
-            publisher: {
-              name: mainSummary.publisher,
-            },
-          },
-        }}
-      />
       <section className="lg:p-6 pt-8">
         <Breadcrumbs items={bcItems} />
         <ActionsSection slug={mainSummary.slug} id={mainSummary._id} />
@@ -189,6 +182,10 @@ const SummaryPage = async ({ params }) => {
           }
         />
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </>
   );
 };
