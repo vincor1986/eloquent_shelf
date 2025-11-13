@@ -7,7 +7,7 @@ export const metadata = {
   title: "Eloquent Shelf | Blog",
   description:
     "Read more about the world of non-fiction, recommendations, and ideas on the Eloquent Shelf blog.",
-  metadataBase: new URL("https://www.eloquentshelf.com/blog"),
+  metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
     canonical: "/blog",
   },

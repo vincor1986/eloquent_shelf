@@ -24,9 +24,7 @@ export const generateMetadata = async ({ params }) => {
   return {
     title: "Eloquent Shelf Blog | " + blogPost.title,
     description: blogPost.subtitle,
-    metadataBase: new URL(
-      `https://www.eloquentshelf.com/blog/${blogPost.slug}`
-    ),
+    metadataBase: new URL(`https://www.eloquentshelf.com`),
     alternates: {
       canonical: `/blog/${blogPost.slug}`,
     },
@@ -34,7 +32,7 @@ export const generateMetadata = async ({ params }) => {
     openGraph: {
       images: [
         {
-          url: `https://www.eloquentshelf.com/blog/${slug}/opengraph-image`,
+          url: `/blog/${slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: `${blogPost.title} OG Image`,

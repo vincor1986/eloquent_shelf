@@ -21,9 +21,7 @@ export const generateMetadata = async ({ params }) => {
   return {
     title: `Eloquent Shelf | ${data.length} book${data.length > 1 ? "s" : ""} about ${catName}`,
     description: `Explore ${data.length} curated non-fiction book summaries and recommendations about ${catName} on Eloquent Shelf.`,
-    metadataBase: new URL(
-      "https://www.eloquentshelf.com/topics/" + categorySlug
-    ),
+    metadataBase: new URL(`https://www.eloquentshelf.com`),
     alternates: {
       canonical: `/topics/${categorySlug}`,
     },

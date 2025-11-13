@@ -12,7 +12,7 @@ export const metadata = {
       },
     ],
   },
-  metadataBase: new URL("https://www.eloquentshelf.com/discover"),
+  metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
     canonical: "/discover",
   },
