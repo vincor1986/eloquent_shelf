@@ -66,11 +66,6 @@ export const blogType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "summary",
-      type: "text",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: "tags",
       type: "array",
       of: [{ type: "string", name: "tag" }],
