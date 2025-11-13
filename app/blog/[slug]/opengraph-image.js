@@ -29,18 +29,29 @@ const Image = async ({ params }) => {
           overflow: "hidden",
         }}
       >
-        <img
-          src={"https://eloquentshelf.com/images/graphics/blog_og_bg.png"}
-          alt="Eloquent Shelf Blog Background"
+        <div
           style={{
             position: "absolute",
+            display: "flex",
+            top: 0,
+            left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover",
-            opacity: 0.6,
+            backgroundColor: "white",
           }}
-        />
-
+        >
+          <img
+            src={"https://eloquentshelf.com/images/graphics/blog_og_bg.png"}
+            alt="Eloquent Shelf Blog Background"
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              opacity: 0.6,
+            }}
+          />
+        </div>
         <div
           style={{
             position: "absolute",
