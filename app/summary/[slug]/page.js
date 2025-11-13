@@ -94,6 +94,11 @@ const SummaryPage = async ({ params }) => {
         url={`https://eloquentshelf.com/summary/${slug}`}
         author="Eloquent Shelf"
         reviewBody={mainSummary.summary}
+        reviewRating={{
+          ratingValue: mainSummary.rating,
+          bestRating: 5,
+          worstRating: 0,
+        }}
         aggregateRating={{
           ratingValue: mainSummary.rating,
           reviewCount: mainSummary.ratings_count,
