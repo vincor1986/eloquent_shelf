@@ -105,11 +105,11 @@ const SummaryPage = async ({ params }) => {
       region === "GB"
         ? [
             mainSummary.amazon_UK_url,
-            getVendorURL("bookshop", mainSummary.BS_UK_isbn_13),
+            getVendorURL("bookshop", mainSummary.BS_UK_isbn_13, region),
           ]
         : [
             mainSummary.amazon_US_url,
-            getVendorURL("bookshop", mainSummary.BS_US_isbn_13),
+            getVendorURL("bookshop", mainSummary.BS_US_isbn_13, region),
           ],
     aggregateRating: {
       "@type": "AggregateRating",
