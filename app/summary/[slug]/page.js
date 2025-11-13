@@ -43,7 +43,7 @@ export const generateMetadata = async ({ params }) => {
     openGraph: {
       images: [
         {
-          url: `summary/${slug}/opengraph-image`,
+          url: `https://www.eloquentshelf.com/summary/${slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: `${mainSummary.title} OG Image`,
