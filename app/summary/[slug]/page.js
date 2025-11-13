@@ -94,10 +94,9 @@ const SummaryPage = async ({ params }) => {
         url={`https://eloquentshelf.com/summary/${slug}`}
         author="Eloquent Shelf"
         reviewBody={mainSummary.summary}
-        reviewRating={{
+        aggregateRating={{
           ratingValue: mainSummary.rating,
-          bestRating: 5,
-          worstRating: 1,
+          reviewCount: mainSummary.ratings_count,
         }}
         name={mainSummary.title}
         datePublished={mainSummary.published_at}
@@ -106,6 +105,7 @@ const SummaryPage = async ({ params }) => {
             name: formatStringList(mainSummary.author),
             sameAs: mainSummary.amazon_UK_link,
           },
+          name: mainSummary.title,
           datePublished: mainSummary.published_at,
           appearance: {
             url: `https://eloquentshelf.com/summary/${slug}`,
