@@ -48,7 +48,7 @@ const Image = async ({ params }) => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              opacity: 0.6,
+              opacity: 0.3,
             }}
           />
         </div>
@@ -88,11 +88,13 @@ const Image = async ({ params }) => {
           <h2
             style={{
               color: "#15475e",
-              fontSize: "42px",
+              fontSize: "60px",
               marginTop: "10px",
               backgroundColor: "white",
               padding: "10px 15px",
               borderRadius: "5px",
+              textWrap: "wrap",
+              maxWidth: "1100px",
             }}
           >
             {blogPost.title}: {blogPost.subtitle}
@@ -108,7 +110,7 @@ const Image = async ({ params }) => {
             <img
               src={"https://eloquentshelf.com/images/logos/main-logo.png"}
               alt="Eloquent shelf logo"
-              style={{ width: "250px", marginTop: "10px" }}
+              style={{ width: "250px", marginTop: "10px", marginLeft: "15px" }}
             />
             <p
               style={{ color: "#15475e", marginLeft: "10px", fontSize: "40px" }}
@@ -116,20 +118,16 @@ const Image = async ({ params }) => {
               Blog
             </p>
           </div>
-          <p style={{ color: "#15475e", fontSize: "24px", marginTop: "10px" }}>
-            {blogPost.read_time_minutes} min read
-          </p>
         </div>
         <img
-          src={imageURL(blogPost.main_image.asset._ref)}
-          alt="Blog main image"
+          src="https://eloquentshelf.com/images/graphics/booktree_transparent.png"
+          alt="Book Tree"
           style={{
             position: "absolute",
-            bottom: "50px",
             right: "50px",
-            width: "550px",
-            borderRadius: "5px",
-            border: "5px solid #15475e",
+            bottom: "-150px",
+            height: "600px",
+            width: "600px",
           }}
         />
       </div>

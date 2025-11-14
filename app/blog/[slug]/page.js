@@ -114,7 +114,7 @@ const BlogPostPage = async ({ params }) => {
           alt={blogPost.main_image.alt || "Blog Image"}
           width={1200}
           height={800}
-          className="w-full h-auto mb-8"
+          className="w-full h-auto object-cover mb-8 max-h-[400px]"
         />
         <PortableText
           value={blogPost.content}
