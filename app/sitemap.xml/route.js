@@ -7,6 +7,7 @@ export const GET = async () => {
   const dataQuery = `*[_type == "summary"]{ slug, _updatedAt, categories }`;
 
   const allBooks = await client.fetch(dataQuery);
+  const allBlogs = await client.fetch(`*[_type == "blog"]`);
 
   const allCategories = Array.from(
     new Set(allBooks.flatMap((book) => book.categories))
@@ -22,6 +23,18 @@ export const GET = async () => {
           <changefreq>yearly</changefreq>
           <priority>0.8</priority>
         </url>`;
+    })
+    .join("");
+
+  const allBlogUrls = allBlogs
+    .map((blog) => {
+      return `
+        <url>
+          <loc>${baseUrl}/blog/${blog.slug}</loc>
+          <lastmod>${new Date(blog.published_at).toISOString()}</lastmod>
+          <priority>0.8</priority>
+        </url>
+    `;
     })
     .join("");
 
@@ -93,6 +106,11 @@ export const GET = async () => {
           <priority>0.8</priority>
         </url>
         <url>
+          <loc>${baseUrl}/blog</loc>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+        </url>
+        <url>
           <loc>${baseUrl}/contact</loc>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
@@ -111,6 +129,7 @@ export const GET = async () => {
           <priority>0.2</priority>
         </url>
         ${bookUrls}
+        ${allBlogUrls}
         ${categoryUrls}
         ${legalUrls}
       </urlset>`;
