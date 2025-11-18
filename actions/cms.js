@@ -127,6 +127,10 @@ export const fetchAllCategories = async () => {
 export const fetchByBookmarks = async (bookmarkIds) => {
   const query = `*[_type == "summary" && _id in $bookmarkIds]`;
 
+  if (bookmarkIds.length === 0) {
+    return { success: true, data: [] };
+  }
+
   try {
     const summaries = await client.fetch(query, { bookmarkIds });
     return { success: true, data: summaries };

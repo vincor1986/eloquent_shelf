@@ -7,7 +7,7 @@ import imageURL from "@/lib/cms/imageURL";
 const components = {
   types: {
     image: ({ value }) => (
-      <figure className="mx-auto max-w-[600px] my-6">
+      <figure className="mx-auto my-6 w-full max-w-[800px] flex items-center flex-col">
         <Image
           src={imageURL(value.asset._ref)}
           alt={value.alt || "Blog image"}
@@ -34,9 +34,10 @@ const components = {
   },
   block: {
     h5: ({ children }) => (
-      <h5 className="lg:text-lg text-primary font-bold mt-8 mb-4">
-        {children}
-      </h5>
+      <div className="w-full">
+        <h5 className="text-lg lg:text-xl text-primary mt-8">{children}</h5>
+        <div className="h-1 bg-light-gold/70 mb-4" />
+      </div>
     ),
     normal: ({ children }) => (
       <p className="leading-7 mb-4 text-primary lg:text-lg">{children}</p>

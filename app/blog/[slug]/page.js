@@ -6,6 +6,7 @@ import { PortableText } from "@portabletext/react";
 
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import HorizontalListView from "@/components/list-view/HorizontalListView";
+import Newsletter from "@/components/newsletter/Newsletter";
 
 import { fetchBlogPostBySlug } from "@/actions/blog";
 import { fetchByBookmarks } from "@/actions/cms";
@@ -52,7 +53,7 @@ const BlogPostPage = async ({ params }) => {
   }
 
   const { data: relatedSummaries } = await fetchByBookmarks(
-    blogPost.related_summaries.map((item) => item._ref)
+    blogPost.related_summaries?.map((item) => item._ref) || []
   );
 
   const jsonLd = {
@@ -127,6 +128,7 @@ const BlogPostPage = async ({ params }) => {
             items={relatedSummaries || []}
           />
         ) : null}
+        <Newsletter />
       </section>
       <script
         type="application/ld+json"
