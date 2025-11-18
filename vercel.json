@@ -1,7 +1,10 @@
 {
   "redirects": [
-    { "source": "http://eloquentshelf.com/:path*", "destination": "https://www.eloquentshelf.com/:path*", "permanent": true },
-    { "source": "https://eloquentshelf.com/:path*", "destination": "https://www.eloquentshelf.com/:path*", "permanent": true },
-    { "source": "http://www.eloquentshelf.com/:path*", "destination": "https://www.eloquentshelf.com/:path*", "permanent": true }
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "eloquentshelf.com" }],
+      "destination": "https://www.eloquentshelf.com/:path*",
+      "permanent": true
+    }
   ]
 }
