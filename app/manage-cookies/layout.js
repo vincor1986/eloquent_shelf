@@ -4,7 +4,7 @@ export const metadata = {
     "Manage your cookie preferences for a personalized browsing experience.",
   metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
-    canonical: "/manage-cookies",
+    canonical: "https://www.eloquentshelf.com/manage-cookies",
   },
 };
 

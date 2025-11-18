@@ -26,7 +26,7 @@ export const generateMetadata = async ({ params }) => {
     description: blogPost.subtitle,
     metadataBase: new URL(`https://www.eloquentshelf.com`),
     alternates: {
-      canonical: `/blog/${blogPost.slug}`,
+      canonical: `https://www.eloquentshelf.com/blog/${blogPost.slug}`,
     },
     keywords: blogPost.tags || [],
     openGraph: {

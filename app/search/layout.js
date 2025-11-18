@@ -4,7 +4,7 @@ export const metadata = {
     "Search Eloquent Shelf's extensive collection of curated non-fiction book summaries and recommendations to find your next great read.",
   metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
-    canonical: "/search",
+    canonical: "https://www.eloquentshelf.com/search",
   },
 };
 

@@ -4,7 +4,7 @@ export const metadata = {
     "View your saved book summaries and recommendations on Eloquent Shelf.",
   metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
-    canonical: "/bookmarks",
+    canonical: "https://www.eloquentshelf.com/bookmarks",
   },
 };
 

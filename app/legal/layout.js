@@ -4,7 +4,7 @@ export const metadata = {
     "Understand the legal terms and conditions of using Eloquent Shelf.",
   metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
-    canonical: "/legal",
+    canonical: "https://www.eloquentshelf.com/legal",
   },
 };
 

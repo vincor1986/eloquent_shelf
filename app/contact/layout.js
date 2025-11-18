@@ -6,7 +6,7 @@ export const metadata = {
     "Get in touch with the Eloquent Shelf team for enquiries, support, or feedback.",
   metadataBase: new URL(`https://www.eloquentshelf.com`),
   alternates: {
-    canonical: "/contact",
+    canonical: "https://www.eloquentshelf.com/contact",
   },
 };
 

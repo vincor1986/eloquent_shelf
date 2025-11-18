@@ -33,7 +33,7 @@ export const metadata = {
   },
   metadataBase: new URL("https://www.eloquentshelf.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.eloquentshelf.com/",
   },
 };
 
