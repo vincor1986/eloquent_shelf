@@ -88,7 +88,7 @@ const Image = async ({ params }) => {
           <h2
             style={{
               color: "#15475e",
-              fontSize: "60px",
+              fontSize: "55px",
               marginTop: "10px",
               backgroundColor: "white",
               padding: "10px 15px",
