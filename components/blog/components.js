@@ -7,16 +7,16 @@ import imageURL from "@/lib/cms/imageURL";
 const components = {
   types: {
     image: ({ value }) => (
-      <figure className="mx-auto my-6 w-full max-w-[800px] flex items-center flex-col">
+      <figure className="mx-auto my-12 w-max max-w-full flex flex-col items-center">
         <Image
           src={imageURL(value.asset._ref)}
           alt={value.alt || "Blog image"}
-          className="rounded-md"
-          width={600}
-          height={400}
+          className="rounded-md w-auto max-w-full"
+          width={800}
+          height={550}
         />
         {value.caption && (
-          <figcaption className="text-sm text-gray-500 mt-2">
+          <figcaption className="text-sm text-gray-500 mt-2 text-left">
             {value.caption}
           </figcaption>
         )}

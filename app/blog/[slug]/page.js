@@ -24,7 +24,7 @@ export const generateMetadata = async ({ params }) => {
 
   return {
     title: "Eloquent Shelf Blog | " + blogPost.title,
-    description: blogPost.subtitle,
+    description: blogPost.meta_description || blogPost.subtitle,
     metadataBase: new URL(`https://www.eloquentshelf.com`),
     alternates: {
       canonical: `https://www.eloquentshelf.com/blog/${blogPost.slug}`,
