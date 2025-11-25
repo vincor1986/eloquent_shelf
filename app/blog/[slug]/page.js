@@ -13,6 +13,7 @@ import { fetchByBookmarks } from "@/actions/cms";
 
 import imageURL from "@/lib/cms/imageURL";
 import components from "@/components/blog/components";
+import DiscoverAdvert from "@/components/discover/DiscoverAdvert";
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = await params;
@@ -117,17 +118,22 @@ const BlogPostPage = async ({ params }) => {
           height={800}
           className="w-full h-auto object-cover mb-8 max-h-[400px]"
         />
-        <PortableText
-          value={blogPost.content}
-          className="leading-7 text-primary mt-6 mb-10 prose lg:prose-lg"
-          components={components}
-        />
-        {relatedSummaries?.length ? (
-          <HorizontalListView
-            title="Related Summaries"
-            items={relatedSummaries || []}
-          />
-        ) : null}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-12 mb-10">
+          <div className="col-span-1 lg:col-span-2">
+            <PortableText
+              value={blogPost.content}
+              className="leading-7 text-primary mt-6 mb-10 prose lg:prose-lg"
+              components={components}
+            />
+            {relatedSummaries?.length ? (
+              <HorizontalListView
+                title="Related Summaries"
+                items={relatedSummaries || []}
+              />
+            ) : null}
+          </div>
+          <DiscoverAdvert />
+        </div>
         <Newsletter />
       </section>
       <script
