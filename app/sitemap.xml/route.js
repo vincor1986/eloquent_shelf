@@ -18,7 +18,7 @@ export const GET = async () => {
     .map((book) => {
       return `
         <url>
-          <loc>${baseUrl}/summaries/${book.slug}</loc>
+          <loc>${baseUrl}/summary/${book.slug}</loc>
           <lastmod>${new Date(book._updatedAt).toISOString()}</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.8</priority>
