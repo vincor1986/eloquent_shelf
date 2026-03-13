@@ -6,9 +6,12 @@ import { Bookmark, Flag } from "lucide-react";
 import useBookmarks from "@/lib/hooks/useBookmarks";
 import { Book } from "@/types/book";
 
+type Props = {
+  slug: string;
+  id: string;
+}
 
-
-const ActionsSection = ({ slug, id }: Book) => {
+const ActionsSection = ({ slug, id }: Props) => {
   const { bookmarks, toggleBookmark } = useBookmarks();
   const isBookmarked = bookmarks.includes(id);
 

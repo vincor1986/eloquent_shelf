@@ -41,7 +41,7 @@ const RecommendationCard = ({
       )}
       <h3 className="text-2xl">{titleText}</h3>
       <p className="italic mb-4 text-secondary">by {author}</p>
-      <Rating starRating={rating} count={ratings_count} />
+      <Rating starRating={rating} count={ratings_count || 0} />
       {blurbTextArr.map((blurb, i) => (
         <p className="mt-3" key={i}>
           {blurb}
@@ -50,8 +50,8 @@ const RecommendationCard = ({
       <br />
       <SummaryPanel
         reading_difficulty={reading_difficulty}
-        page_count={page_count}
-        read_time_minutes={read_time_minutes}
+        page_count={page_count || "Unknown"}
+        read_time_minutes={read_time_minutes || "Unknown"}
       />
       <div className="flex w-full gap-2 items-center justify-end">
         <AmazonLink title={title} author={author}>

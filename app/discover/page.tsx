@@ -11,10 +11,12 @@ import defaultDiscoverData from "@/data/defaultDIscoverData";
 import aiSymbol from "@/public/images/icons/ai.png";
 import Image from "next/image";
 
+import { BookData, DiscoverFormData } from "@/types/ai";
+
 const DiscoverPage = () => {
-  const [formData, setFormData] = useState(defaultDiscoverData);
-  const [results, setResults] = useState([]);
-  const [start, setStart] = useState(false);
+  const [formData, setFormData] = useState<DiscoverFormData>(defaultDiscoverData);
+  const [results, setResults] = useState<BookData[]>([]);
+  const [start, setStart] = useState<boolean>(false);
 
   return (
     <section className="lg:px-4">

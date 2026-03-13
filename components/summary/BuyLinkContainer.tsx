@@ -1,8 +1,8 @@
 import { Book } from "@/types/book";
 import VendorButton from "./VendorButton";
 
-const VENDORS = ["bookshop", "amazon"];
-
+const VENDORS: ["bookshop", "amazon"] = ["bookshop", "amazon"];
+ 
 const BuyLinkContainer = ({
   BS_UK_isbn_13,
   BS_US_isbn_13,

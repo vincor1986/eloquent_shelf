@@ -1,7 +1,12 @@
 import TitleSection from "@/components/ui/SectionTitle";
 import { Book } from "@/types/book";
 
-const SummaryOverview = ({ title, summary }: Book) => {
+type Props = {
+  title: string;
+  summary: string;
+}
+
+const SummaryOverview = ({ title, summary }: Props) => {
   const summaryTextArr = summary
     .split("\n")
     .filter((para) => para.trim() !== "");
