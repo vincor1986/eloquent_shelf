@@ -32,6 +32,8 @@ export const submitContactForm = async (formData: Record<string, any>, token: st
 
     const { success, score, action, hostname } : RecaptchaResponse = await res.json();
 
+    console.log("ReCaptcha Response:", { success, score, action, hostname });
+
     if (!success) return { success: false, error: "Failed ReCaptcha Validation"};
     
     if (score < 0.5 || action !== "contact_form_submit" || hostname !== "eloquentshelf.com") {
