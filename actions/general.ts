@@ -36,7 +36,7 @@ export const submitContactForm = async (formData: Record<string, any>, token: st
 
     if (!success) return { success: false, error: "Failed ReCaptcha Validation"};
     
-    if (score < 0.5 || action !== "contact_form_submit" || hostname !== "eloquentshelf.com") {
+    if (score < 0.5 || action !== "contact_form_submit" || hostname !== "www.eloquentshelf.com") {
       return { success: false, error: "ReCaptcha verification failed" };
     }
     const response = await fetch(CONTACT_FORM_URL as string, {
