@@ -8,6 +8,8 @@ export const getUserRegion = async (): Promise<string> => {
   return region;
 };
 
+type RecaptchaResponse = { success: boolean, score: number, action: string, hostname: string };
+
 export const submitContactForm = async (formData: Record<string, any>, token: string): Promise<{ success: boolean, error?: string }> => {
   const CONTACT_FORM_URL = process.env.CONTACT_FORM_URL;
 
@@ -28,11 +30,13 @@ export const submitContactForm = async (formData: Record<string, any>, token: st
       params
     );
 
-    const { success } = await res.json();
+    const { success, score, action, hostname } : RecaptchaResponse = await res.json();
 
-    if (!success)
+    if (!success) return { success: false, error: "Failed ReCaptcha Validation"};
+    
+    if (score < 0.5 || action !== "contact_form_submit" || hostname !== "eloquentshelf.com") {
       return { success: false, error: "ReCaptcha verification failed" };
-
+    }
     const response = await fetch(CONTACT_FORM_URL as string, {
       method: "POST",
       headers: {
